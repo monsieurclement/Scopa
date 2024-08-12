@@ -1,0 +1,262 @@
+[gd_scene load_steps=12 format=3 uid="uid://ktnb1qx3lml1"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_6r4s3"]
+[ext_resource type="Texture2D" uid="uid://bdd8xptsrr8h5" path="res://Assets/Cartes/icons/exit-door (1).png" id="2_gneho"]
+[ext_resource type="Script" path="res://scripts/CardContainer.gd" id="3_6syq3"]
+[ext_resource type="Texture2D" uid="uid://dpwopo6gpxf18" path="res://Assets/Cartes/icons/anticlockwise-rotation.svg" id="3_r776x"]
+[ext_resource type="PackedScene" uid="uid://d38kdy7t03g80" path="res://scenes/player.tscn" id="4_g7fix"]
+[ext_resource type="Texture2D" uid="uid://b2l4elrwprpa1" path="res://Assets/Cartes/icons/scroll-quill.svg" id="4_xn4am"]
+[ext_resource type="Texture2D" uid="uid://bdij85bmsx1n2" path="res://Assets/pile vide.png" id="6_8rxpn"]
+[ext_resource type="Script" path="res://scripts/Deck.gd" id="7_2whfm"]
+[ext_resource type="Texture2D" uid="uid://x4r7m1675l65" path="res://Assets/Cartes/Card back.svg" id="9_8buox"]
+[ext_resource type="PackedScene" uid="uid://bs2w5nch457dn" path="res://scenes/rules.tscn" id="9_ijnvs"]
+[ext_resource type="Script" path="res://scripts/Plis.gd" id="10_a06ab"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6r4s3")
+
+[node name="Board" type="Node" parent="."]
+
+[node name="CardHolder" type="Node" parent="Board"]
+
+[node name="UI" type="CanvasLayer" parent="Board"]
+
+[node name="ColorRect" type="ColorRect" parent="Board/UI"]
+offset_left = -27.0
+offset_top = -21.0
+offset_right = 1167.0
+offset_bottom = 673.0
+color = Color(0, 0.364706, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Board/UI"]
+modulate = Color(1, 0.952941, 1, 1)
+offset_left = 1055.0
+offset_top = 15.0
+offset_right = 1139.0
+offset_bottom = 99.0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.329158, 0.329158, 0.329158, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("2_gneho")
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartButton" type="Button" parent="Board/UI"]
+modulate = Color(1, 0.952941, 1, 1)
+offset_left = 1055.0
+offset_top = 121.0
+offset_right = 1139.0
+offset_bottom = 205.0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.329158, 0.329158, 0.329158, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("3_r776x")
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="RulesButton" type="Button" parent="Board/UI"]
+modulate = Color(1, 0.952941, 1, 1)
+offset_left = 1055.0
+offset_top = 560.0
+offset_right = 1139.0
+offset_bottom = 644.0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.329158, 0.329158, 0.329158, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("4_xn4am")
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = 268.0
+offset_right = 196.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("3_6syq3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Players" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -52.0
+offset_right = -128.0
+offset_bottom = -551.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="joueur2" parent="Board/UI/Players" instance=ExtResource("4_g7fix")]
+visible = false
+layout_mode = 2
+
+[node name="joueur3" parent="Board/UI/Players" instance=ExtResource("4_g7fix")]
+visible = false
+layout_mode = 2
+
+[node name="joueur4" parent="Board/UI/Players" instance=ExtResource("4_g7fix")]
+visible = false
+layout_mode = 2
+
+[node name="Deck" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = -1
+anchor_left = 0.0364583
+anchor_top = -0.268519
+anchor_right = 0.0364583
+anchor_bottom = -0.268519
+offset_left = 38.0
+offset_top = 403.0
+offset_right = 185.0
+offset_bottom = 547.0
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("7_2whfm")
+
+[node name="vide" type="Sprite2D" parent="Board/UI/Deck"]
+texture_filter = 4
+position = Vector2(73, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("6_8rxpn")
+
+[node name="plein" type="Sprite2D" parent="Board/UI/Deck"]
+texture_filter = 4
+position = Vector2(73, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("9_8buox")
+
+[node name="to_play" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = -1
+anchor_left = 0.0364583
+anchor_top = -0.268519
+anchor_right = 0.0364583
+anchor_bottom = -0.268519
+offset_left = 187.0
+offset_top = 403.0
+offset_right = 334.0
+offset_bottom = 547.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="vide" type="Sprite2D" parent="Board/UI/to_play"]
+texture_filter = 4
+position = Vector2(73, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("6_8rxpn")
+
+[node name="Plis" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = -1
+anchor_left = 0.0364583
+anchor_top = -0.268519
+anchor_right = 0.0364583
+anchor_bottom = -0.268519
+offset_left = 38.0
+offset_top = 654.0
+offset_right = 185.0
+offset_bottom = 798.0
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("10_a06ab")
+
+[node name="vide" type="Sprite2D" parent="Board/UI/Plis"]
+texture_filter = 4
+position = Vector2(73, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("6_8rxpn")
+
+[node name="plein" type="Sprite2D" parent="Board/UI/Plis"]
+visible = false
+texture_filter = 4
+position = Vector2(73, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("9_8buox")
+
+[node name="Board" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = -1
+anchor_left = 0.110243
+anchor_top = -0.188272
+anchor_right = 0.265625
+anchor_bottom = -0.188272
+offset_left = 298.0
+offset_top = 351.0
+offset_right = 828.0
+offset_bottom = 559.0
+size_flags_vertical = 4
+
+[node name="PlayButton" type="Button" parent="Board/UI"]
+offset_left = 919.0
+offset_top = 493.0
+offset_right = 1048.0
+offset_bottom = 556.0
+theme_override_font_sizes/font_size = 40
+text = "JOUER"
+metadata/_edit_use_anchors_ = true
+
+[node name="cant_play_message" type="Label" parent="Board/UI"]
+visible = false
+offset_left = 834.0
+offset_top = 454.0
+offset_right = 1138.0
+offset_bottom = 477.0
+text = "Vous devez choisir les cartes à capturer"
+
+[node name="message_1" type="Label" parent="Board/UI"]
+offset_left = 834.0
+offset_top = 431.0
+offset_right = 1138.0
+offset_bottom = 454.0
+text = "Vous devez choisir les cartes à capturer"
+
+[node name="Rules" parent="Board/UI" instance=ExtResource("9_ijnvs")]
+visible = false
+
+[connection signal="played" from="." to="." method="_on_played"]
+[connection signal="pressed" from="Board/UI/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Board/UI/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Board/UI/RulesButton" to="." method="_on_rules_button_pressed"]
+[connection signal="mouse_entered" from="Board/UI/Hand" to="Board/UI/Hand" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Hand" to="Board/UI/Hand" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/Players" to="Board/UI/Players" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Players" to="Board/UI/Players" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/Deck" to="Board/UI/Deck" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Deck" to="Board/UI/Deck" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/to_play" to="Board/UI/to_play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/to_play" to="Board/UI/to_play" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/Plis" to="Board/UI/Plis" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Plis" to="Board/UI/Plis" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/Board" to="Board/UI/Board" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Board" to="Board/UI/Board" method="_on_mouse_exited"]
+[connection signal="pressed" from="Board/UI/PlayButton" to="." method="_on_play_button_pressed"]

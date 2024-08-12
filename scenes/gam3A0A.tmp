@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://ktnb1qx3lml1"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_6r4s3"]
+[ext_resource type="Texture2D" uid="uid://bdd8xptsrr8h5" path="res://Assets/Cartes/icons/exit-door (1).png" id="2_gneho"]
+[ext_resource type="Script" path="res://scripts/CardContainer.gd" id="3_6syq3"]
+[ext_resource type="PackedScene" uid="uid://0g6ku1l1c0gh" path="res://scenes/carte.tscn" id="4_dis6t"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6r4s3")
+
+[node name="Board" type="Node" parent="."]
+
+[node name="CardHolder" type="Node" parent="Board"]
+
+[node name="UI" type="CanvasLayer" parent="Board"]
+
+[node name="ColorRect" type="ColorRect" parent="Board/UI"]
+offset_left = -27.0
+offset_top = -21.0
+offset_right = 1167.0
+offset_bottom = 673.0
+color = Color(0, 0.364706, 0, 1)
+
+[node name="QuitButton" type="Button" parent="Board/UI"]
+modulate = Color(1, 0.952941, 1, 1)
+offset_left = 1055.0
+offset_top = 15.0
+offset_right = 1139.0
+offset_bottom = 99.0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.329158, 0.329158, 0.329158, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("2_gneho")
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="CardContainer" type="HBoxContainer" parent="Board/UI"]
+offset_left = 168.0
+offset_top = 376.0
+offset_right = 1060.0
+offset_bottom = 556.0
+script = ExtResource("3_6syq3")
+
+[node name="Carte" parent="Board/UI/CardContainer" instance=ExtResource("4_dis6t")]
+layout_mode = 2
+
+[node name="Carte2" parent="Board/UI/CardContainer" instance=ExtResource("4_dis6t")]
+layout_mode = 2
+
+[node name="Carte3" parent="Board/UI/CardContainer" instance=ExtResource("4_dis6t")]
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="Board/UI"]
+position = Vector2(576, 326)
+
+[connection signal="pressed" from="Board/UI/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="Board/UI/CardContainer" to="Board/UI/CardContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/CardContainer" to="Board/UI/CardContainer" method="_on_mouse_exited"]

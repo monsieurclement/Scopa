@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=3 uid="uid://ktnb1qx3lml1"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_6r4s3"]
+[ext_resource type="Texture2D" uid="uid://bdd8xptsrr8h5" path="res://Assets/Cartes/icons/exit-door (1).png" id="2_gneho"]
+[ext_resource type="Script" path="res://scripts/CardContainer.gd" id="3_6syq3"]
+[ext_resource type="PackedScene" uid="uid://ce03u60vciwct" path="res://scenes/carte.tscn" id="4_xqobd"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6r4s3")
+
+[node name="Board" type="Node" parent="."]
+
+[node name="CardHolder" type="Node" parent="Board"]
+
+[node name="UI" type="CanvasLayer" parent="Board"]
+
+[node name="ColorRect" type="ColorRect" parent="Board/UI"]
+offset_left = -27.0
+offset_top = -21.0
+offset_right = 1167.0
+offset_bottom = 673.0
+color = Color(0, 0.364706, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Board/UI"]
+modulate = Color(1, 0.952941, 1, 1)
+offset_left = 1055.0
+offset_top = 15.0
+offset_right = 1139.0
+offset_bottom = 99.0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.329158, 0.329158, 0.329158, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("2_gneho")
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = 268.0
+offset_right = 196.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("3_6syq3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Players" type="HBoxContainer" parent="Board/UI"]
+unique_name_in_owner = true
+offset_left = 44.0
+offset_right = 1027.0
+offset_bottom = 110.0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Deck" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = -1
+anchor_left = 0.0364583
+anchor_top = -0.268519
+anchor_right = 0.0364583
+anchor_bottom = -0.268519
+offset_left = 87.0
+offset_top = 347.0
+offset_right = 234.0
+offset_bottom = 597.0
+size_flags_vertical = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Carte" parent="Board/UI/Deck" instance=ExtResource("4_xqobd")]
+layout_mode = 2
+
+[node name="Board" type="HBoxContainer" parent="Board/UI"]
+anchors_preset = -1
+anchor_left = 0.110243
+anchor_top = -0.188272
+anchor_right = 0.265625
+anchor_bottom = -0.188272
+offset_left = 191.0
+offset_top = 338.0
+offset_right = 808.0
+offset_bottom = 546.0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="Board/UI"]
+offset_left = 919.0
+offset_top = 493.0
+offset_right = 1048.0
+offset_bottom = 556.0
+theme_override_font_sizes/font_size = 40
+text = "JOUER"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Board/UI/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="Board/UI/Hand" to="Board/UI/Hand" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Hand" to="Board/UI/Hand" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/Players" to="Board/UI/Players" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Players" to="Board/UI/Players" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/Deck" to="Board/UI/Deck" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Deck" to="Board/UI/Deck" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Board/UI/Board" to="Board/UI/Board" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/UI/Board" to="Board/UI/Board" method="_on_mouse_exited"]
+[connection signal="pressed" from="Board/UI/PlayButton" to="." method="_on_play_button_pressed"]

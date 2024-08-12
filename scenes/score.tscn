@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciyf0oi68dbi0"]
+
+[ext_resource type="Script" path="res://scripts/rules.gd" id="1_lou7b"]
+[ext_resource type="Texture2D" uid="uid://bab58821jeeut" path="res://Assets/Cartes/icons/cancel.svg" id="2_rb6xh"]
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -250.0
+offset_right = 375.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_lou7b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "	La scopa est un jeu [i]italien [/i]qui se joue avec un jeu de [b]40 cartes[/b]. Les 4 couleurs du jeu sont le denier, la coupe, le bâton et l'épée. Les valeurs des cartes vont de 1 à 7, puis le valet, le cavalier et le roi forment les têtes (de valeur 8, 9 et 10 respectivement). Le but du jeu est d'être le premier joueur à parvenir à [b]21 points[/b].
+
+	A chaque manche, on met 4 cartes sur le [b]plateau[/b], et on distribue 3 cartes à chaque joueur.
+A son tour, on sélectionne une carte de sa main. Celle-ci va permettre de capturer une ou deux cartes du plateau si la [b]somme de leurs valeurs[/b] [b]est égale à la valeur [/b]de la carte sélectionnée. Les 2 ou 3 cartes sont alors retirées du jeu pour rejoindre la pile de [b]plis [/b]du joueur. S'il y a plusieurs options de capture, on se doit de choisir celle qui capture [b]le moins de cartes[/b]. Dans le cas où aucune carte n'est capturable, la carte jouée rejoint les autres [b]sur le plateau[/b].
+Lorsqu'une capture vide le plateau de toute carte, c'est une [rainbow]scopa[/rainbow] ! (balai en français) Cela rapportera [b]1 point [wave]supplémentaire[/wave][/b] au joueur en fin de manche.
+
+	Quand plus aucun joueur n'a de carte en main, on en redistribue 3 à chacun, et ce jusqu'à ce que la pioche soit épuisée. Une fois que toutes les cartes ont été jouées, on passe au [b][i]calcul des points[/i][/b]. Il y a alors [b]4 points[/b] à attribuer par manche (hors scopa) : 1 point pour le joueur qui a le plus de cartes dans ses plis, 1 pour le joueur qui a capturé le 7 de deniers, 1 pour le joueur qui a capturé le plus de cartes de deniers, et enfin la [i]primiera[/i]. Lorsqu’il y a une égalité dans un de ces domaines, [b]aucun point n’est accordé[/b].
+
+[u]Calcul de la [i]primiera [/i]:[/u]
+
+Pour déterminer qui a la [i]primiera[/i], chaque joueur sélectionne la meilleure carte qu'il a dans chaque couleur suivant l'ordre ci-dessous et somme les valeurs de ces quatre cartes :
+[center]
+- 7 : 21 ;
+- 6 : 18 ;
+ - As : 16 ;
+ - 5 : 15 ;
+ - 4 : 14 ;
+ - 3 : 13 ;
+ - 2 : 12 ;
+ - Roi, Cavalier et Valet: 10 chacun.
+[/center]
+Par exemple, avec les 7 de coupes et de deniers, le 6 de bâtons et l'as d'épées, on a un total de (21 + 21 + 18 + 16) = 76. Celui qui a le plus grand total remporte le point de la [i]primiera[/i]."
+language = "fr"
+
+[node name="CloseRulesButton" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.12
+icon = ExtResource("2_rb6xh")
+expand_icon = true
+
+[connection signal="pressed" from="CloseRulesButton" to="." method="_on_close_rules_button_pressed"]

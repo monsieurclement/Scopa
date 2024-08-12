@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Scopa"
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GeneralGame="*res://GeneralGame.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://Assets/curseur de souris.png"
+mouse_cursor/custom_image_hotspot=Vector2(10, 8)
+
+[filesystem]
+
+import/fbx/enabled=false

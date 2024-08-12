@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://d38kdy7t03g80"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_7ike0"]
+[ext_resource type="Texture2D" uid="uid://x4r7m1675l65" path="res://Assets/Cartes/Card back.svg" id="1_chu1n"]
+[ext_resource type="Texture2D" uid="uid://bdij85bmsx1n2" path="res://Assets/pile vide.png" id="2_x4np7"]
+
+[node name="joueur" type="Control"]
+custom_minimum_size = Vector2(300, 160)
+layout_mode = 3
+anchor_left = -0.125
+anchor_top = -0.111
+anchor_right = 0.118
+anchor_bottom = 0.111
+offset_left = -10.0
+offset_top = -0.0719986
+offset_right = 10.064
+offset_bottom = 0.0719986
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(144, 72)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_7ike0")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(48, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_chu1n")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(80, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_chu1n")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(112, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_chu1n")
+
+[node name="pile" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(224, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_chu1n")
+
+[node name="pile2" type="Sprite2D" parent="."]
+position = Vector2(224, 72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_x4np7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 152.0
+offset_right = 202.0
+offset_bottom = 175.0
+text = "Joueur X"
+horizontal_alignment = 1

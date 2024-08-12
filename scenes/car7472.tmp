@@ -1,0 +1,317 @@
+[gd_scene load_steps=49 format=3 uid="uid://0g6ku1l1c0gh"]
+
+[ext_resource type="Script" path="res://scripts/carte.gd" id="1_3hkb1"]
+[ext_resource type="Texture2D" uid="uid://x4r7m1675l65" path="res://Assets/Cartes/Card back.svg" id="2_mak5c"]
+[ext_resource type="Texture2D" uid="uid://dibf11l4pe0oi" path="res://Assets/Cartes/Cartes faces/b1.svg" id="3_k0fkc"]
+[ext_resource type="Texture2D" uid="uid://bdx8te2xgwg0u" path="res://Assets/Cartes/Cartes faces/b2.svg" id="4_xl24m"]
+[ext_resource type="Texture2D" uid="uid://d3uvunqufrorc" path="res://Assets/Cartes/Cartes faces/b3.svg" id="5_slc00"]
+[ext_resource type="Texture2D" uid="uid://uyclwhmrnlqd" path="res://Assets/Cartes/Cartes faces/b4.svg" id="6_j0o3t"]
+[ext_resource type="Texture2D" uid="uid://vv6ybb7haxu7" path="res://Assets/Cartes/Cartes faces/b5.svg" id="7_jb1n6"]
+[ext_resource type="Texture2D" uid="uid://bw6xpdwvj6pou" path="res://Assets/Cartes/Cartes faces/b6.svg" id="8_bhexm"]
+[ext_resource type="Texture2D" uid="uid://cw0rlshlt552w" path="res://Assets/Cartes/Cartes faces/b7.svg" id="9_l0xw8"]
+[ext_resource type="Texture2D" uid="uid://casdk48c3k8ka" path="res://Assets/Cartes/Cartes faces/b8.svg" id="10_cwttd"]
+[ext_resource type="Texture2D" uid="uid://b1ih0vpdug6pr" path="res://Assets/Cartes/Cartes faces/b9.svg" id="11_av1t8"]
+[ext_resource type="Texture2D" uid="uid://1ffgpr560dty" path="res://Assets/Cartes/Cartes faces/b10.svg" id="12_ttjsn"]
+[ext_resource type="Texture2D" uid="uid://cawv4jagp7tfj" path="res://Assets/Cartes/Cartes faces/c1.svg" id="13_ixbv2"]
+[ext_resource type="Texture2D" uid="uid://crye0kd2p0vlr" path="res://Assets/Cartes/Cartes faces/c2.svg" id="14_rflpv"]
+[ext_resource type="Texture2D" uid="uid://bfopj0dnalb51" path="res://Assets/Cartes/Cartes faces/c3.svg" id="15_tfhvc"]
+[ext_resource type="Texture2D" uid="uid://b012y3xamftud" path="res://Assets/Cartes/Cartes faces/c4.svg" id="16_4m6od"]
+[ext_resource type="Texture2D" uid="uid://d0a3v61crsvr3" path="res://Assets/Cartes/Cartes faces/c5.svg" id="17_2jawt"]
+[ext_resource type="Texture2D" uid="uid://ccvacmek10s6a" path="res://Assets/Cartes/Cartes faces/c6.svg" id="18_f5dmf"]
+[ext_resource type="Texture2D" uid="uid://gorgny0ol8tp" path="res://Assets/Cartes/Cartes faces/c7.svg" id="19_wpwq6"]
+[ext_resource type="Texture2D" uid="uid://d4j5iu2nsl6tv" path="res://Assets/Cartes/Cartes faces/c8.svg" id="20_5kcfy"]
+[ext_resource type="Texture2D" uid="uid://y2rwgp6jmqvv" path="res://Assets/Cartes/Cartes faces/c9.svg" id="21_ltike"]
+[ext_resource type="Texture2D" uid="uid://b3b47pnk2l1m1" path="res://Assets/Cartes/Cartes faces/c10.svg" id="22_gv23q"]
+[ext_resource type="Texture2D" uid="uid://b43qnrfrccrdw" path="res://Assets/Cartes/Cartes faces/d1.svg" id="23_qfwry"]
+[ext_resource type="Texture2D" uid="uid://bn74li0itac24" path="res://Assets/Cartes/Cartes faces/d2.svg" id="24_yyrkw"]
+[ext_resource type="Texture2D" uid="uid://dopx7ckl3amk8" path="res://Assets/Cartes/Cartes faces/d3.svg" id="25_388is"]
+[ext_resource type="Texture2D" uid="uid://b23nvot47nutu" path="res://Assets/Cartes/Cartes faces/d4.svg" id="26_nffxt"]
+[ext_resource type="Texture2D" uid="uid://xr8seitspbe" path="res://Assets/Cartes/Cartes faces/d5.svg" id="27_5heo1"]
+[ext_resource type="Texture2D" uid="uid://xcfhg3dlydsg" path="res://Assets/Cartes/Cartes faces/d6.svg" id="28_fc3qo"]
+[ext_resource type="Texture2D" uid="uid://bdsh6jdac681n" path="res://Assets/Cartes/Cartes faces/d7.svg" id="29_palgy"]
+[ext_resource type="Texture2D" uid="uid://js3y4amy6uda" path="res://Assets/Cartes/Cartes faces/d8.svg" id="30_pq6dj"]
+[ext_resource type="Texture2D" uid="uid://ccj6ci67cli1e" path="res://Assets/Cartes/Cartes faces/d9.svg" id="31_aw7mu"]
+[ext_resource type="Texture2D" uid="uid://c2rfribevm8vq" path="res://Assets/Cartes/Cartes faces/d10.svg" id="32_o6ggo"]
+[ext_resource type="Texture2D" uid="uid://dulmr0guqvxov" path="res://Assets/Cartes/Cartes faces/e1.svg" id="33_lfibc"]
+[ext_resource type="Texture2D" uid="uid://cifny6ryhe7r" path="res://Assets/Cartes/Cartes faces/e2.svg" id="34_1fv44"]
+[ext_resource type="Texture2D" uid="uid://c47k4yahbhvjf" path="res://Assets/Cartes/Cartes faces/e3.svg" id="35_fv3uu"]
+[ext_resource type="Texture2D" uid="uid://bvj8ly3lpayy" path="res://Assets/Cartes/Cartes faces/e4.svg" id="36_m0v6a"]
+[ext_resource type="Texture2D" uid="uid://dhw65og6td0pb" path="res://Assets/Cartes/Cartes faces/e5.svg" id="37_3hfnl"]
+[ext_resource type="Texture2D" uid="uid://dyw8nx41c5e5a" path="res://Assets/Cartes/Cartes faces/e6.svg" id="38_1l4uw"]
+[ext_resource type="Texture2D" uid="uid://cfv6mfyx5cmgm" path="res://Assets/Cartes/Cartes faces/e7.svg" id="39_yckat"]
+[ext_resource type="Texture2D" uid="uid://cuaynfrv3av2w" path="res://Assets/Cartes/Cartes faces/e8.svg" id="40_jjov2"]
+[ext_resource type="Texture2D" uid="uid://51rx5wmxjsey" path="res://Assets/Cartes/Cartes faces/e9.svg" id="41_4sq8d"]
+[ext_resource type="Texture2D" uid="uid://cypbwcdqr65ch" path="res://Assets/Cartes/Cartes faces/e10.svg" id="42_aplb8"]
+
+[sub_resource type="Animation" id="Animation_5j4rl"]
+resource_name = "Deselect"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cardback:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d14b4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cardback:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cardback:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cardback/Cardface:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="Animation" id="Animation_8j1n2"]
+resource_name = "Select"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cardback:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_0ma7f"]
+resource_name = "flip"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cardback:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.15, 0.3, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.170313, 0.2), Vector2(0.01, 0.2), Vector2(0.168404, 0.2), Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cardback/Cardface:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qageq"]
+_data = {
+"Deselect": SubResource("Animation_5j4rl"),
+"RESET": SubResource("Animation_d14b4"),
+"Select": SubResource("Animation_8j1n2"),
+"flip": SubResource("Animation_0ma7f")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nw7bt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k0fkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xl24m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_slc00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j0o3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jb1n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bhexm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l0xw8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cwttd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_av1t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ttjsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ixbv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rflpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tfhvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4m6od")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2jawt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_f5dmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wpwq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5kcfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ltike")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_gv23q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_qfwry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_yyrkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_388is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_nffxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5heo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_fc3qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_palgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_pq6dj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_aw7mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_o6ggo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_lfibc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_1fv44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_fv3uu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_m0v6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_3hfnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_1l4uw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_yckat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_jjov2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_4sq8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_aplb8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Carte" type="Container"]
+custom_minimum_size = Vector2(96, 144)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -480.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 72)
+script = ExtResource("1_3hkb1")
+card_color = null
+card_valor = null
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qageq")
+}
+
+[node name="Cardback" type="Sprite2D" parent="."]
+texture_filter = 4
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mak5c")
+
+[node name="Cardface" type="AnimatedSprite2D" parent="Cardback"]
+unique_name_in_owner = true
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_nw7bt")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
