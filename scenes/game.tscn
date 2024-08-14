@@ -50,6 +50,7 @@ expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="RestartButton" type="Button" parent="Board/UI"]
+visible = false
 modulate = Color(1, 0.952941, 1, 1)
 offset_left = 1055.0
 offset_top = 121.0
@@ -271,6 +272,7 @@ text = "Joueur X commence."
 visible = false
 
 [connection signal="played" from="." to="." method="_on_played"]
+[connection signal="player_played" from="." to="." method="_on_player_played"]
 [connection signal="round_finished" from="." to="." method="_on_round_finished"]
 [connection signal="scopa" from="." to="." method="_on_scopa"]
 [connection signal="pressed" from="Board/UI/QuitButton" to="." method="_on_quit_button_pressed"]
