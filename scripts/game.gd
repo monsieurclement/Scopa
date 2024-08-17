@@ -7,6 +7,7 @@ signal played
 signal player_played
 signal round_finished
 signal scopa
+signal game_finished
 #var cardsToCapture = {} #dictionnaire liant les combis de cartes avec leurs IDs dans sums-possible
 var sums_possible = [] 
 var nb_cards_capture = []
@@ -18,6 +19,9 @@ var liste_intermediaire = []
 @export var taille_init_board = 4
 @export var nb_player = 4
 var second_tour = false
+var first_round = true
+var nb_round = 1
+
 
 func _ready():
 	reset_game() #remise à zéro des arrays et destruction des enfants
@@ -51,17 +55,14 @@ func _on_rules_button_pressed():
 func _on_play_button_pressed(): #animation de jouer la carte et passer son tour
 	if GeneralGame.idCardSelected == null or GeneralGame.idCardSelected not in GeneralGame.players_hands[0]:
 		pass #si aucune carte n'est sélectionnée on joue rien
-	else:
+	elif %play_message.visible:
 		player1_play()
 	for card in $Board/UI/Board.get_children():
 		if card.onBoardSelected == true and !card.cardHighlighted :
 			card.onBoardDeselect()
 			
 
-
-
-func reset_game():
-	
+func player_random_commence():
 	#order suit le nb de joueurs
 	GeneralGame.nb_players = nb_player
 	GeneralGame.order.clear()
@@ -73,6 +74,15 @@ func reset_game():
 	var rand = randi() % 10
 	for i in range(rand):
 		turnover()
+
+func reset_game():
+	
+	if first_round:
+		player_random_commence()
+		first_round = false
+	else:
+		turnover()
+	
 	#message de qui commence
 	if GeneralGame.order[0] == 0:
 		$Board/UI/message_1.text = "Vous commencez."
@@ -84,7 +94,13 @@ func reset_game():
 	GeneralGame.players_hands = [[],[],[],[]]
 	GeneralGame.players_plis = [[],[],[],[]]
 	GeneralGame.board = []
+	nb_round = 1
 	scopas.clear()
+	
+	#virer la dernière carte jouée
+	for idx in $Board/UI/to_play.get_children():
+				if idx.name != "vide":
+					idx.queue_free() #retirer tous les enfants sauf "vide"
 	
 	for n in $Board/UI/Board.get_children():
 		$Board/UI/Board.remove_child(n)
@@ -182,8 +198,8 @@ func turn_manager():
 	
 func play():
 	if GeneralGame.order[0] == 0:
-		%cant_play_message.text = "A vous de jouer !"
-		%cant_play_message.visible = true
+		%play_message.text = "A vous de jouer !"
+		%play_message.visible = true
 		await player_played
 		turnover()
 	else:
@@ -209,7 +225,7 @@ func player1_play():
 			liste_intermediaire.append(int(i.id))
 	
 	#si sélection de cartes ou pas de possibilité considérer la liste intermédiaire
-	#if %cant_play_message.visible == true or liste_intermediaire.size() != 0:
+	#if %play_message.visible == true or liste_intermediaire.size() != 0:
 		#cards_to_consider = liste_intermediaire
 		#print(cards_to_consider)
 	
@@ -226,8 +242,8 @@ func player1_play():
 		second_tour = true #on cancel le cas de défausse vu qu'il a été vu au 1er round
 		logique_tour(cardToPlay)
 		if !has_played:	
-			%cant_play_message.text = "Vous devez choisir la bonne carte à capturer." #si pas les bonnes cartes sélect
-			%cant_play_message.visible = true
+			%play_message.text = "Vous devez choisir la bonne carte à capturer." #si pas les bonnes cartes sélect
+			%play_message.visible = true
 	
 		
 		
@@ -245,7 +261,7 @@ func player1_play():
 	has_played = false
 	#else:
 		#
-		#$Board/UI/cant_play_message.visible = true
+		#$Board/UI/play_message.visible = true
 		#cardsToCapture.clear()
 		#sums_possible.clear()
 		#pass
@@ -282,8 +298,8 @@ func logique_tour(cardToPlay):
 	
 	if nb_cards_capture.size() == 0:
 		if second_tour:#cas de défausse géré au 1er tour des calculs
-			#%cant_play_message.text = "Avez-vous sélectionné les bonnes cartes ?" #pas sûr de ça en vrai
-			#%cant_play_message.visible = true
+			#%play_message.text = "Avez-vous sélectionné les bonnes cartes ?" #pas sûr de ça en vrai
+			#%play_message.visible = true
 			pass
 		else:
 			##effacement de la carte de la main (objet)
@@ -449,7 +465,7 @@ func turnover(): #tour de la boucle des joueurs
 
 
 func _on_played():
-	%cant_play_message.visible = false
+	%play_message.visible = false
 
 	
 	#await get_tree().create_timer(timer).timeout 
@@ -462,18 +478,15 @@ func _on_round_finished():
 	decompte_points(GeneralGame.players_plis)
 	#print(GeneralGame.players_plis)
 	#print(GeneralGame.points)
+	nb_round += 1
 	
-	for i in range(GeneralGame.points.size()):
-		if GeneralGame.points[i]>21: #!!! prendre en compte égalités et scores multiples supérieurs à 21
-			print("Joueur "+str(i+1)+" a gagné !!")
-	
-	#apparition d'un menu de point, et on relance pas avant qu'on appuie sur un bouton
-			
-	#reset_game()
+		#apparition d'un menu de point, et on relance pas avant qu'on appuie sur un bouton
+	await get_tree().create_timer(timer*5).timeout
+	reset_game()
 	
 func decompte_points(plis):
 	var score = [0,0,0,0]
-	print("\n \n -------DECOMPTE DES POINTS : -------\n")
+	print("\n \n ------- DECOMPTE DES POINTS DE LA MANCHE ",nb_round," : ------- \n")
 	#decompte du plus grand nb de cartes
 	for i in range(4):
 		score[i] = plis[i].size()
@@ -485,6 +498,8 @@ func decompte_points(plis):
 		print("plus gd nb de carte : aucun joueur")
 	
 	score.clear()
+	
+	
 	
 	#decompte du nb de deniers
 	score = [0,0,0,0]
@@ -544,9 +559,19 @@ func decompte_points(plis):
 	print("Score final de la manche : \n", "Joueur 1 : ",GeneralGame.points[0], "\nJoueur 2 : ",GeneralGame.points[1], "\nJoueur 3 : ",GeneralGame.points[2], "\nJoueur 4 : ",GeneralGame.points[3])
 	
 	
+	for i in range(GeneralGame.points.size()):
+		if GeneralGame.points[i]>21: #!!! prendre en compte égalités et scores multiples supérieurs à 21
+			print("Joueur "+str(i+1)+" a gagné !!")
+			game_finished.emit()
+	
+	
 func _on_scopa():
 	scopas.append(GeneralGame.order[0])
 	print("Bravo ! Scopa ! Joueur ", str(GeneralGame.order[0]+1)," marque 1 point !")
 
 func _on_player_played():
 	pass # Replace with function body.
+
+
+func _on_game_finished() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn") #retour au menu principal

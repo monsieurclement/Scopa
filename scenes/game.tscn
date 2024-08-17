@@ -252,7 +252,7 @@ offset_bottom = 474.0
 text = "Vos plis"
 horizontal_alignment = 1
 
-[node name="cant_play_message" type="Label" parent="Board/UI"]
+[node name="play_message" type="Label" parent="Board/UI"]
 unique_name_in_owner = true
 visible = false
 offset_left = 803.0
@@ -271,6 +271,7 @@ text = "Joueur X commence."
 [node name="Rules" parent="Board/UI" instance=ExtResource("9_ijnvs")]
 visible = false
 
+[connection signal="game_finished" from="." to="." method="_on_game_finished"]
 [connection signal="played" from="." to="." method="_on_played"]
 [connection signal="player_played" from="." to="." method="_on_player_played"]
 [connection signal="round_finished" from="." to="." method="_on_round_finished"]
