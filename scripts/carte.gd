@@ -106,4 +106,3 @@ func flip():
 				##place card on board : DECIDER WHAT HAPPENS NEXT
 				##self.queue_free()
 				##get_node("%ZoneDepot").placeCard()
-
