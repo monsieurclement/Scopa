@@ -19,3 +19,4 @@ var players_plis = [[],[],[],[]]
 var points = Array([0,0,0,0], TYPE_INT,&"", null )
 var order = []
 var valeurs_des_cartes = {0:16,1:12,2:13,3:14,4:15,5:18,6:21,7:10,8:10,9:10}
+var timer = 0.1

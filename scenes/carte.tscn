@@ -82,6 +82,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [-1]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cardback/Contour:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8j1n2"]
 resource_name = "Select"
@@ -97,6 +109,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.615572),
 "update": 0,
 "values": [Vector2(48, 72), Vector2(48, 22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cardback/Contour:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_0ma7f"]
@@ -288,6 +312,7 @@ position = Vector2(0, 1.52588e-05)
 sprite_frames = SubResource("SpriteFrames_nw7bt")
 
 [node name="Contour" type="Sprite2D" parent="Cardback"]
+unique_name_in_owner = true
 visible = false
 texture_filter = 4
 texture = ExtResource("43_f8dtc")

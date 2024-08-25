@@ -24,6 +24,8 @@ var nb_round = 1
 
 
 func _ready():
+	GeneralGame.nb_players = nb_player
+	GeneralGame.timer = timer
 	reset_game() #remise à zéro des arrays et destruction des enfants
 	
 	
@@ -43,9 +45,9 @@ func _on_quit_button_pressed():
 	
 	get_tree().change_scene_to_file("res://scenes/menu.tscn") #retour au menu principal
 
-func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
-	
+func _on_score_button_pressed() -> void:
+	$Board/UI/Score.visible = true
+
 
 func _on_rules_button_pressed():
 	$Board/UI/Rules.visible = true
@@ -94,7 +96,7 @@ func reset_game():
 	GeneralGame.players_hands = [[],[],[],[]]
 	GeneralGame.players_plis = [[],[],[],[]]
 	GeneralGame.board = []
-	nb_round = 1
+	nb_round += 1
 	scopas.clear()
 	
 	#virer la dernière carte jouée
@@ -478,7 +480,6 @@ func _on_round_finished():
 	decompte_points(GeneralGame.players_plis)
 	#print(GeneralGame.players_plis)
 	#print(GeneralGame.points)
-	nb_round += 1
 	
 		#apparition d'un menu de point, et on relance pas avant qu'on appuie sur un bouton
 	await get_tree().create_timer(timer*5).timeout

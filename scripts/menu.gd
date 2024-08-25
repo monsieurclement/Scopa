@@ -14,9 +14,9 @@ func _on_quit_pressed():
 
 
 func _on_rules_pressed():
-	%PanelContainer.visible = true
+	%Rules.visible = true
 	
 
 
 func _on_close_rules_button_pressed():
-	%PanelContainer.visible = false
+	%Rules.visible = false

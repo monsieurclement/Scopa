@@ -26,35 +26,63 @@ color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_top = 31
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 15
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "	La scopa est un jeu [i]italien [/i]qui se joue avec un jeu de [b]40 cartes[/b]. Les 4 couleurs du jeu sont le denier, la coupe, le bâton et l'épée. Les valeurs des cartes vont de 1 à 7, puis le valet, le cavalier et le roi forment les têtes (de valeur 8, 9 et 10 respectivement). Le but du jeu est d'être le premier joueur à parvenir à [b]21 points[/b].
+text = "[center][b][u][font_size={20}]Règles de la scopa[/font_size][/u][/b][/center]
 
-	A chaque manche, on met 4 cartes sur le [b]plateau[/b], et on distribue 3 cartes à chaque joueur.
-A son tour, on sélectionne une carte de sa main. Celle-ci va permettre de capturer une ou deux cartes du plateau si la [b]somme de leurs valeurs[/b] [b]est égale à la valeur [/b]de la carte sélectionnée. Les 2 ou 3 cartes sont alors retirées du jeu pour rejoindre la pile de [b]plis [/b]du joueur. S'il y a plusieurs options de capture, on se doit de choisir celle qui capture [b]le moins de cartes[/b]. Dans le cas où aucune carte n'est capturable, la carte jouée rejoint les autres [b]sur le plateau[/b].
-Lorsqu'une capture vide le plateau de toute carte, c'est une [rainbow]scopa[/rainbow] ! (balai en français) Cela rapportera [b]1 point [wave]supplémentaire[/wave][/b] au joueur en fin de manche.
+	La scopa est un jeu [i]italien [/i]qui se joue avec un jeu de [b]40 cartes[/b]. Les 4 couleurs du jeu sont le denier, la coupe, le bâton et l'épée. Les valeurs des cartes vont de 1 à 7, puis le valet, le cavalier et le roi forment les têtes (de valeur 8, 9 et 10 respectivement).
 
-	Quand plus aucun joueur n'a de carte en main, on en redistribue 3 à chacun, et ce jusqu'à ce que la pioche soit épuisée. Une fois que toutes les cartes ont été jouées, on passe au [b][i]calcul des points[/i][/b]. Il y a alors [b]4 points[/b] à attribuer par manche (hors scopa) : 1 point pour le joueur qui a le plus de cartes dans ses plis, 1 pour le joueur qui a capturé le 7 de deniers, 1 pour le joueur qui a capturé le plus de cartes de deniers, et enfin la [i]primiera[/i]. Lorsqu’il y a une égalité dans un de ces domaines, [b]aucun point n’est accordé[/b].
+	[u]But du jeu :[/u] Parvenir à 21 points avant les autres joueurs.	
+	[u]Nombre de joueurs :[/u] entre 2 et 4
+
+[u]Déroulé d'une manche :[/u]	
+
+	Au début de chaque manche, on met 4 cartes sur le [b]plateau[/b], et on distribue 3 cartes à chaque joueur. A son tour, un joueur va sélectionner une carte de sa main. Celle-ci va soit capturer des cartes du plateau, soit rejoindre les autres sur le plateau lorsque ce n'est pas possible.
+
+	On peut capturer une ou deux cartes du plateau si la [b]somme de leurs valeurs[/b] [b]est égale à la valeur [/b]de la carte jouée. La carte jouée et sa ou ses captures sont alors retirées du jeu pour rejoindre la pile de [b]plis [/b]du joueur. S'il y a plusieurs options de capture, on se doit de toujours choisir celle qui capture [b]le moins de cartes[/b].
+
+[i]Exemple : il y a le 2 de deniers, le 3 de coupe et le 5 d'épée sur la plateau. Le joueur 3 sélectionne le 5 de coupe dans sa main. Il pourrait alors capturer soit le 5, soit le 3 et le 2 (3+2 =5), mais ne capture que le 5 car c'est l'option qui capture le moins de cartes[/i]. 
+
+	Lorsqu'une capture vide le plateau de toute carte, c'est une [rainbow]scopa[/rainbow] ! (balai en français). Cela rapportera [b]1 point [wave]supplémentaire[/wave][/b] au joueur en fin de manche.
+
+	Quand plus aucun joueur n'a de carte en main, on en redistribue 3 à chacun, et ce jusqu'à ce que la pioche soit épuisée. Une fois que toutes les cartes ont été jouées, on passe au [b][i]calcul des points de la manche[/i][/b]. 
+
+[u]Calcul des points :[/u]
+
+	Il y a [b]4 points[/b] à attribuer par manche. Lorsqu’il y a une égalité dans un de ces domaines, [b]aucun point n’est accordé[/b]. On attribue donc :
+- 1 point pour le joueur qui a le plus de cartes dans ses plis, 
+- 1 point pour le joueur qui a capturé le 7 de deniers,
+- 1 point pour le joueur qui a capturé le plus de cartes de deniers, 
+- 1 point pour le joueur qui remporte la [i]primiera[/i].
+
+A ces 4 points s'ajoutent les points des scopas : chaque joueur ajoute à son score autant de points qu'il a fait de scopas dans la manche.
 
 [u]Calcul de la [i]primiera [/i]:[/u]
 
-Pour déterminer qui a la [i]primiera[/i], chaque joueur sélectionne la meilleure carte qu'il a dans chaque couleur suivant l'ordre ci-dessous et somme les valeurs de ces quatre cartes :
-[center]
-- 7 : 21 ;
-- 6 : 18 ;
- - As : 16 ;
- - 5 : 15 ;
- - 4 : 14 ;
- - 3 : 13 ;
- - 2 : 12 ;
- - Roi, Cavalier et Valet: 10 chacun.
-[/center]
-Par exemple, avec les 7 de coupes et de deniers, le 6 de bâtons et l'as d'épées, on a un total de (21 + 21 + 18 + 16) = 76. Celui qui a le plus grand total remporte le point de la [i]primiera[/i]."
+	Pour déterminer quel joueur remporte le point de la [i]primiera[/i], on va suivre une méthode qui attribue à chaque joueur un [b]score de primiera[/b] pour la manche. Le joueur avec le plus grand score gagne le point de la primiera. Chaque joueur sélectionne la meilleure carte qu'il a dans chaque couleur en suivant l'ordre ci-dessous et marque son score de primiera en sommant les valeurs en [color=#f79f0e]jaune[/color] de ces quatre cartes :
+
+- 7 : [color=#f79f0e]21[/color] ;
+- 6 : [color=#f79f0e]18[/color] ;
+- As : [color=#f79f0e]16[/color] ;
+- 5 : [color=#f79f0e]15[/color] ;
+- 4 : [color=#f79f0e]14[/color] ;
+- 3 : [color=#f79f0e]13[/color] ;
+- 2 : [color=#f79f0e]12[/color] ;
+- Roi, Cavalier et Valet: [color=#f79f0e]10[/color] chacun.
+
+[i]Par exemple, avec les 7 de coupes et de deniers, le 6 de bâtons et l'as d'épées, on obtient un score de primiera total de (21 + 21 + 18 + 16) = 76.[/i]
+
+[u]Quelques astuces :[/u]
+
+- Les 4 types de points sont importants pour gagner, ne vous concentrez pas que sur la primiera !
+- Le 7 de deniers est la meilleure carte du jeu : elle contribue au gain de tous les types de points.
+- De la même façon, les deniers sont la meilleure couleur du jeu, si vous hésitez entre deux captures, privilégiez celle qui vous fera capturer des deniers.
+- Lorsque c'est possible, essayez d'empêcher vos adversaires de faire des scopas, ou essayez d'en faire vous même ; c'est la manière de marquer des points la plus efficace."
 language = "fr"
 
 [node name="CloseRulesButton" type="Button" parent="."]
@@ -66,4 +94,5 @@ size_flags_stretch_ratio = 2.12
 icon = ExtResource("2_lk2g6")
 expand_icon = true
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="CloseRulesButton" to="." method="_on_close_rules_button_pressed"]

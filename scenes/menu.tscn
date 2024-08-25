@@ -51,7 +51,7 @@ offset_bottom = 319.0
 theme_override_font_sizes/font_size = 48
 text = "SCOPA"
 
-[node name="PanelContainer" parent="MenuImage" instance=ExtResource("2_ugivg")]
+[node name="Rules" parent="MenuImage" instance=ExtResource("2_ugivg")]
 unique_name_in_owner = true
 visible = false
 
