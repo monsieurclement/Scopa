@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_6r4s3"]
 [ext_resource type="Texture2D" uid="uid://bdd8xptsrr8h5" path="res://Assets/Cartes/icons/exit-door (1).png" id="2_gneho"]
 [ext_resource type="Script" path="res://scripts/CardContainer.gd" id="3_6syq3"]
-[ext_resource type="Texture2D" uid="uid://c5d6etfcgjwyo" path="res://Assets/Cartes/icons/notebook.svg" id="3_dkgm5"]
+[ext_resource type="Texture2D" uid="uid://4h2qhhxe8lhw" path="res://Assets/Cartes/icons/histogram.svg" id="3_60xl6"]
 [ext_resource type="PackedScene" uid="uid://d38kdy7t03g80" path="res://scenes/player.tscn" id="4_g7fix"]
 [ext_resource type="Texture2D" uid="uid://b2l4elrwprpa1" path="res://Assets/Cartes/icons/scroll-quill.svg" id="4_xn4am"]
 [ext_resource type="Texture2D" uid="uid://bdij85bmsx1n2" path="res://Assets/pile vide.png" id="6_8rxpn"]
@@ -15,7 +15,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6r4s3")
-nb_player = 2
+nb_player = 3
 
 [node name="Board" type="Node" parent="."]
 
@@ -78,7 +78,7 @@ theme_override_constants/outline_size = 0
 theme_override_constants/h_separation = 0
 theme_override_constants/icon_max_width = 0
 theme_override_font_sizes/font_size = 50
-icon = ExtResource("3_dkgm5")
+icon = ExtResource("3_60xl6")
 flat = true
 vertical_icon_alignment = 0
 expand_icon = true
@@ -132,7 +132,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
 offset_top = -52.0
-offset_right = -128.0
+offset_right = -104.0
 offset_bottom = -551.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -225,15 +225,17 @@ scale = Vector2(0.16, 0.16)
 texture = ExtResource("9_8buox")
 
 [node name="Board" type="HBoxContainer" parent="Board/UI"]
-anchors_preset = -1
-anchor_left = 0.110243
-anchor_top = -0.188272
-anchor_right = 0.265625
-anchor_bottom = -0.188272
-offset_left = 298.0
-offset_top = 351.0
-offset_right = 828.0
-offset_bottom = 559.0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -769.0
+offset_top = -104.0
+offset_bottom = 104.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="PlayButton" type="Button" parent="Board/UI"]
@@ -242,7 +244,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -200.0
+offset_left = -208.0
 offset_top = -168.0
 offset_right = -71.0
 offset_bottom = -105.0

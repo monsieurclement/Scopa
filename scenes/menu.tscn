@@ -15,10 +15,10 @@ script = ExtResource("1_fgmpm")
 [node name="MenuImage" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="MenuImage"]
-offset_left = -21.0
-offset_top = -19.0
-offset_right = 1240.0
-offset_bottom = 715.0
+offset_left = -490.0
+offset_top = -428.0
+offset_right = 1782.0
+offset_bottom = 891.0
 color = Color(0, 0.364706, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuImage"]

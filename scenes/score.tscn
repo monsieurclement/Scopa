@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciyf0oi68dbi0"]
 
 [ext_resource type="Script" path="res://scripts/score.gd" id="1_706kn"]
-[ext_resource type="Texture2D" uid="uid://m3s3sfq5cd2u" path="res://Assets/Cartes/icons/sideswipe.svg" id="2_2cbaa"]
+[ext_resource type="Texture2D" uid="uid://bqbxyjpa62ikt" path="res://Assets/Cartes/icons/fleche_left.svg" id="2_oqede"]
 [ext_resource type="Texture2D" uid="uid://bab58821jeeut" path="res://Assets/Cartes/icons/cancel.svg" id="2_rb6xh"]
-[ext_resource type="Texture2D" uid="uid://beh1rx0wdeth2" path="res://Assets/Cartes/icons/sideswiperight.svg" id="3_ptkip"]
+[ext_resource type="Texture2D" uid="uid://dyj05sq3tsmtg" path="res://Assets/Cartes/icons/fleche_right.svg" id="3_uxjxc"]
 
 [node name="Score" type="PanelContainer"]
 anchors_preset = 8
@@ -46,21 +46,21 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_constants/icon_max_width = 30
-icon = ExtResource("2_2cbaa")
+icon = ExtResource("2_oqede")
+icon_alignment = 1
 expand_icon = true
 
 [node name="RoundNb" type="Label" parent="MarginContainer/VBoxContainer/En-tête"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "MANCHE x"
+theme_override_font_sizes/font_size = 28
+text = "MANCHE 1"
 
 [node name="RightButton" type="Button" parent="MarginContainer/VBoxContainer/En-tête"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_constants/icon_max_width = 30
-icon = ExtResource("3_ptkip")
+icon = ExtResource("3_uxjxc")
 expand_icon = true
 
 [node name="PlisButton" type="Button" parent="MarginContainer/VBoxContainer/En-tête"]
@@ -68,7 +68,14 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "Voir les plis"
 
-[node name="Manche" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Manche1" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -76,396 +83,396 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Colonnes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Manche"]
+[node name="Colonnes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Manche1"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="En-têtes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="En-têtes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 1.77
 
-[node name="PlayerLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="PlayerLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Joueur"
 horizontal_alignment = 1
 
-[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="ScopasLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="ScopasLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Scopas
 "
 horizontal_alignment = 1
 
-[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="CardsLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="CardsLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Nombre de cartes"
 horizontal_alignment = 1
 
-[node name="DeniersLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="DeniersLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Nombre de deniers"
 horizontal_alignment = 1
 
-[node name="7dLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="7dLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "7 de deniers"
 horizontal_alignment = 1
 
-[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="PrimieraScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="PrimieraScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Score de primiera"
 horizontal_alignment = 1
 
-[node name="PrimieraLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="PrimieraLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Primiera"
 horizontal_alignment = 1
 
-[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="RoundScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="RoundScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Score de la manche"
 horizontal_alignment = 1
 
-[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="GameScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/En-têtes"]
+[node name="GameScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/En-têtes"]
 layout_mode = 2
 text = "Score de la partie"
 horizontal_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 layout_mode = 2
 
-[node name="Player1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="Player1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "1
 "
 horizontal_alignment = 1
 
-[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "00"
 horizontal_alignment = 1
 
-[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player1"]
+[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player1"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 layout_mode = 2
 
-[node name="Player2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="Player2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "2"
 horizontal_alignment = 1
 
-[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "00"
 horizontal_alignment = 1
 
-[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player2"]
+[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player2"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Player3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="Player3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "3"
 horizontal_alignment = 1
 
-[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "00"
 horizontal_alignment = 1
 
-[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player3"]
+[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player3"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Player4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche/Colonnes"]
+[node name="Player4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manche1/Colonnes"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Player" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "4"
 horizontal_alignment = 1
 
-[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Space" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Scopas" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Space2" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="NbCards" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="NbDeniers" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="7d" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Space3" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="PrimieraScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "00"
 horizontal_alignment = 1
 
-[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Primiera" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Space4" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="RoundScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="Space5" type="Control" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche/Colonnes/Player4"]
+[node name="GameScore" type="Label" parent="MarginContainer/VBoxContainer/Manche1/Colonnes/Player4"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1

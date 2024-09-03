@@ -19,3 +19,4 @@ func _on_ready() -> void:
 	if nb_players < 3:
 		%Player3.visible = false
 		%VSeparator3.visible = false
+	
