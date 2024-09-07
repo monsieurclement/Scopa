@@ -299,6 +299,7 @@ text = "Joueur X commence."
 visible = false
 
 [node name="Score" parent="Board/UI" instance=ExtResource("12_443po")]
+unique_name_in_owner = true
 visible = false
 
 [connection signal="game_finished" from="." to="." method="_on_game_finished"]

@@ -1,0 +1,407 @@
+[gd_scene load_steps=2 format=3 uid="uid://n8wnibuf0oho"]
+
+[ext_resource type="Script" path="res://scripts/manche_1.gd" id="1_betp7"]
+
+[node name="Manche1" type="MarginContainer"]
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_betp7")
+
+[node name="Colonnes" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="En-têtes" type="VBoxContainer" parent="Colonnes"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 1.77
+
+[node name="PlayerLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Joueur"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="Colonnes/En-têtes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="ScopasLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Scopas
+"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="Colonnes/En-têtes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="CardsLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Nombre de cartes"
+horizontal_alignment = 1
+
+[node name="DeniersLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Nombre de deniers"
+horizontal_alignment = 1
+
+[node name="7dLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "7 de deniers"
+horizontal_alignment = 1
+
+[node name="Space3" type="Control" parent="Colonnes/En-têtes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="PrimieraScoreLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Score de primiera"
+horizontal_alignment = 1
+
+[node name="PrimieraLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Primiera"
+horizontal_alignment = 1
+
+[node name="Space4" type="Control" parent="Colonnes/En-têtes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="RoundScoreLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Score de la manche"
+horizontal_alignment = 1
+
+[node name="Space5" type="Control" parent="Colonnes/En-têtes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="GameScoreLabel" type="Label" parent="Colonnes/En-têtes"]
+layout_mode = 2
+text = "Score de la partie"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Colonnes"]
+layout_mode = 2
+
+[node name="Player1" type="VBoxContainer" parent="Colonnes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "1
+"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="Colonnes/Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Scopas" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="Colonnes/Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="NbCards" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="NbDeniers" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="7d" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space3" type="Control" parent="Colonnes/Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="PrimieraScore" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
+
+[node name="Primiera" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space4" type="Control" parent="Colonnes/Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="RoundScore" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space5" type="Control" parent="Colonnes/Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="GameScore" type="Label" parent="Colonnes/Player1"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Colonnes"]
+layout_mode = 2
+
+[node name="Player2" type="VBoxContainer" parent="Colonnes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "2"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="Colonnes/Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Scopas" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="Colonnes/Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="NbCards" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="NbDeniers" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="7d" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space3" type="Control" parent="Colonnes/Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="PrimieraScore" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
+
+[node name="Primiera" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space4" type="Control" parent="Colonnes/Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="RoundScore" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space5" type="Control" parent="Colonnes/Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="GameScore" type="Label" parent="Colonnes/Player2"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Colonnes"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Player3" type="VBoxContainer" parent="Colonnes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="Colonnes/Player3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Scopas" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="Colonnes/Player3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="NbCards" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="NbDeniers" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="7d" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space3" type="Control" parent="Colonnes/Player3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="PrimieraScore" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
+
+[node name="Primiera" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space4" type="Control" parent="Colonnes/Player3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="RoundScore" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space5" type="Control" parent="Colonnes/Player3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="GameScore" type="Label" parent="Colonnes/Player3"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="Colonnes"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Player4" type="VBoxContainer" parent="Colonnes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "4"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="Colonnes/Player4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Scopas" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="Colonnes/Player4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="NbCards" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="NbDeniers" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="7d" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space3" type="Control" parent="Colonnes/Player4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="PrimieraScore" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
+
+[node name="Primiera" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Space4" type="Control" parent="Colonnes/Player4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="RoundScore" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Space5" type="Control" parent="Colonnes/Player4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="GameScore" type="Label" parent="Colonnes/Player4"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
