@@ -29,6 +29,9 @@ func _ready():
 	reset_game() #remise à zéro des arrays et destruction des enfants
 	
 	
+	#var score_test = [[0,1,0,3],[1,0,0,0],[0,1,0,0],[0,0,1,0],[50,67,99,71],[0,0,1,0],[1,2,3,4],[9,12,14,19]]
+	#%Score/Marges/Lignes.get_node("manche"+str(%Score.manche_array[-1])).actualize_points(score_test)
+	
 	
 func _process(_delta):
 	for i in [2,3,4]:
@@ -482,21 +485,31 @@ func _on_round_finished():
 	#print(GeneralGame.points)
 	
 		#apparition d'un menu de point, et on relance pas avant qu'on appuie sur un bouton
-	await get_tree().create_timer(timer*5).timeout
+	%Score.visible = true
+	%Score/Marges/Lignes/NextRoundButton.visible = true
+	%Score/CloseScoreButton.visible = false
+	await %Score._on_next_round_button_pressed
 	reset_game()
 	
 func decompte_points(plis):
 	var score = [0,0,0,0]
-	print("\n \n ------- DECOMPTE DES POINTS DE LA MANCHE ",nb_round," : ------- \n")
+	
+	#GeneralGame.score_to_actualize[0] = scopas #nb de scopas par joueurs
+	
+	
+	#print("\n \n ------- DECOMPTE DES POINTS DE LA MANCHE ",nb_round," : ------- \n")
 	#decompte du plus grand nb de cartes
 	for i in range(4):
 		score[i] = plis[i].size()
 	
+	
+	
 	if score.count(score.max()) == 1:
-		GeneralGame.points[score.find(score.max())] += 1 #index n'existe pas ??? crash ici 
-		print("plus gd nb de carte : Joueur ",score.find(score.max())+1)
-	else:
-		print("plus gd nb de carte : aucun joueur")
+		GeneralGame.points[score.find(score.max())] += 1
+		GeneralGame.score_to_actualize[1][score.find(score.max())] += 1
+		#print("plus gd nb de carte : Joueur ",score.find(score.max())+1)
+	#else:
+		#print("plus gd nb de carte : aucun joueur")
 	
 	score.clear()
 	
@@ -510,23 +523,25 @@ func decompte_points(plis):
 				score[i] += 1
 	if score.count(score.max()) == 1:
 		GeneralGame.points[score.find(score.max())] += 1
-		print("plus gd nb de deniers : Joueur ",score.find(score.max())+1)
-	else:
-		print("plus gd nb de deniers : aucun joueur")
+		GeneralGame.score_to_actualize[2][score.find(score.max())] += 1
+		#print("plus gd nb de deniers : Joueur ",score.find(score.max())+1)
+	#else:
+		#print("plus gd nb de deniers : aucun joueur")
 		
 	score.clear()
 	
 	#decompte du 7 de deniers
-	var sept = null
+	var _sept = null
 	for i in range(4):
 		if plis[i].has(26):
-			sept = i
+			_sept = i
 			GeneralGame.points[i] += 1
+			GeneralGame.score_to_actualize[3][i] += 1
 			
-	if sept == null:
-		print("7 de deniers : aucun joueur")
-	else:
-		print("7 de deniers : Joueur ",sept+1)
+	#if sept == null:
+		#print("7 de deniers : aucun joueur")
+	#else:
+		#print("7 de deniers : Joueur ",sept+1)
 	#sept.free() #éliminer cette var ?
 	
 	
@@ -543,21 +558,41 @@ func decompte_points(plis):
 				jetons[color] = GeneralGame.valeurs_des_cartes[value]
 		score[i] = jetons[0] + jetons[1] + jetons[2] + jetons[3] #sommes des jetons de chaque couleur pour chaque joueur
 	
+	GeneralGame.score_to_actualize[4] = score #actualisation des scores de scopas
+		
 	if score.count(score.max()) == 1:
 		GeneralGame.points[score.find(score.max())] += 1
-		print("primiera : Joueur ",score.find(score.max())+1)
-	else:
-		print("primiera : aucun joueur")
+		GeneralGame.score_to_actualize[5][score.find(score.max())] += 1
+		#print("primiera : Joueur ",score.find(score.max())+1)
+	#else:
+		#print("primiera : aucun joueur")
 	
 	
 	#decompte des scopas du round
-	print("Scopas : \n", "Joueur 1 : ",scopas.count(0), "\nJoueur 2 : ",scopas.count(1), "\nJoueur 3 : ",scopas.count(2), "\nJoueur 4 : ",scopas.count(3))
+	#print("Scopas : \n", "Joueur 1 : ",scopas.count(0), "\nJoueur 2 : ",scopas.count(1), "\nJoueur 3 : ",scopas.count(2), "\nJoueur 4 : ",scopas.count(3))
 	
 	for i in scopas:
 		GeneralGame.points[i] +=1
+		GeneralGame.score_to_actualize[0][i]+=1
+		
 	scopas.clear()
 	
-	print("Score final de la manche : \n", "Joueur 1 : ",GeneralGame.points[0], "\nJoueur 2 : ",GeneralGame.points[1], "\nJoueur 3 : ",GeneralGame.points[2], "\nJoueur 4 : ",GeneralGame.points[3])
+	#print("Score final de la manche : \n", "Joueur 1 : ",GeneralGame.points[0], "\nJoueur 2 : ",GeneralGame.points[1], "\nJoueur 3 : ",GeneralGame.points[2], "\nJoueur 4 : ",GeneralGame.points[3])
+	
+	GeneralGame.score_to_actualize[6] = sum_of_arrays( 
+		sum_of_arrays(
+		sum_of_arrays(GeneralGame.score_to_actualize[0],GeneralGame.score_to_actualize[1]),
+		sum_of_arrays(GeneralGame.score_to_actualize[2],GeneralGame.score_to_actualize[3])),
+	GeneralGame.score_to_actualize[5])
+	
+	
+	GeneralGame.score_to_actualize[7] = GeneralGame.points
+	
+	
+	%Score/Marges/Lignes.get_node("manche"+str(%Score.manche_array[-1])).actualize_points(GeneralGame.score_to_actualize)
+	#%Score.active_manche = nb_round-1
+	%Score.new_round()
+	GeneralGame.score_to_actualize = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 	
 	
 	for i in range(GeneralGame.points.size()):
@@ -576,3 +611,10 @@ func _on_player_played():
 
 func _on_game_finished() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn") #retour au menu principal
+
+func sum_of_arrays(array1,array2):
+	if array1.size() == array2.size():
+		var array3 = []
+		for i in range(array1.size()):
+			array3.append(array1[i] + array2[i])
+		return array3

@@ -28,7 +28,7 @@ func new_round() -> void: #création d'une manche
 	manche.manche_nb = new_manche
 	manche.name = "manche"+str(new_manche)
 	$Marges/Lignes.add_child(manche) #ajout de la nouvelle manche
-	
+	$Marges/Lignes.move_child($Marges/Lignes.get_node("manche"+str(new_manche)),-3) #mise en place pour pas bouger le bouton
 	change_active_manche.emit()
 
 
@@ -57,4 +57,12 @@ func _on_change_active_manche() -> void:
 	
 
 func _on_plis_button_pressed() -> void:
-	new_round()
+	pass
+	#new_round()
+	#$Marges/Lignes.get_node("manche1").actualize_points()
+
+
+func _on_next_round_button_pressed() -> void:
+	%NextRoundButton.visible = false
+	$CloseScoreButton.visible = true
+	self.visible = false

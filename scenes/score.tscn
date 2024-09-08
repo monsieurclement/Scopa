@@ -75,6 +75,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 
+[node name="Space3" type="Control" parent="Marges/Lignes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="NextRoundButton" type="Button" parent="Marges/Lignes"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Passer à la prochaine manche"
+icon_alignment = 2
+expand_icon = true
+
 [node name="CloseScoreButton" type="Button" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
@@ -90,4 +104,5 @@ expand_icon = true
 [connection signal="pressed" from="Marges/Lignes/En-tête/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/PlisButton" to="." method="_on_plis_button_pressed"]
+[connection signal="pressed" from="Marges/Lignes/NextRoundButton" to="." method="_on_next_round_button_pressed"]
 [connection signal="pressed" from="CloseScoreButton" to="." method="_on_close_score_button_pressed"]

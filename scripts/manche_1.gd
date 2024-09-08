@@ -1,7 +1,8 @@
 extends MarginContainer
 var nb_players
 var manche_nb: int
-var on:bool = true
+var plis
+#var on:bool = true
 
 func _on_ready() -> void:
 	pass
@@ -21,3 +22,23 @@ func _on_visibility_changed() -> void:
 	if nb_players < 3:
 		%Player3.visible = false
 		%VSeparator3.visible = false
+
+func actualize_points(array):
+	var categories = ["Scopas","NbCards","NbDeniers","7d","PrimieraScore","Primiera","RoundScore","GameScore"]
+	for i in [1,2,3,4]: #pour chaque joueur
+		for j in range(8):#pour chaque item
+			$Colonnes.get_node("Player"+str(i)).get_node(categories[j]).text = str(array[j][i-1]) #maj du score
+			mask_zero(array[j][i-1],$Colonnes.get_node("Player"+str(i)).get_node(categories[j]))#on cache un peu les 0
+			if j in [0,1,2,3,5]:#dans les catégories de points classiques d'une manche on met en doré les valeurs non nulles
+				golden(array[j][i-1],$Colonnes.get_node("Player"+str(i)).get_node(categories[j]))
+
+	
+func mask_zero(score:int,node):
+	if score == 0:
+		node.set("theme_override_colors/font_color",Color("535353"))
+	
+
+func golden(score,node):
+	if score != 0:
+		node.set("theme_override_colors/font_color",Color("f79f0e"))
+	

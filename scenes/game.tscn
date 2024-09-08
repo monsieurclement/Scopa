@@ -15,7 +15,6 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6r4s3")
-nb_player = 3
 
 [node name="Board" type="Node" parent="."]
 
