@@ -1,0 +1,318 @@
+[gd_scene load_steps=45 format=3 uid="uid://dr2kyddytr5ep"]
+
+[ext_resource type="Texture2D" uid="uid://x4r7m1675l65" path="res://Assets/Cartes/Card back.svg" id="2_577e8"]
+[ext_resource type="Texture2D" uid="uid://dibf11l4pe0oi" path="res://Assets/Cartes/Cartes faces/b1.svg" id="3_7x0wn"]
+[ext_resource type="Texture2D" uid="uid://bdx8te2xgwg0u" path="res://Assets/Cartes/Cartes faces/b2.svg" id="4_b8ggu"]
+[ext_resource type="Texture2D" uid="uid://d3uvunqufrorc" path="res://Assets/Cartes/Cartes faces/b3.svg" id="5_260r7"]
+[ext_resource type="Texture2D" uid="uid://uyclwhmrnlqd" path="res://Assets/Cartes/Cartes faces/b4.svg" id="6_iwbgd"]
+[ext_resource type="Texture2D" uid="uid://vv6ybb7haxu7" path="res://Assets/Cartes/Cartes faces/b5.svg" id="7_s40ei"]
+[ext_resource type="Texture2D" uid="uid://bw6xpdwvj6pou" path="res://Assets/Cartes/Cartes faces/b6.svg" id="8_vkbvd"]
+[ext_resource type="Texture2D" uid="uid://cw0rlshlt552w" path="res://Assets/Cartes/Cartes faces/b7.svg" id="9_oowb4"]
+[ext_resource type="Texture2D" uid="uid://casdk48c3k8ka" path="res://Assets/Cartes/Cartes faces/b8.svg" id="10_128oi"]
+[ext_resource type="Texture2D" uid="uid://b1ih0vpdug6pr" path="res://Assets/Cartes/Cartes faces/b9.svg" id="11_a4656"]
+[ext_resource type="Texture2D" uid="uid://1ffgpr560dty" path="res://Assets/Cartes/Cartes faces/b10.svg" id="12_jeke8"]
+[ext_resource type="Texture2D" uid="uid://cawv4jagp7tfj" path="res://Assets/Cartes/Cartes faces/c1.svg" id="13_y2r1d"]
+[ext_resource type="Texture2D" uid="uid://crye0kd2p0vlr" path="res://Assets/Cartes/Cartes faces/c2.svg" id="14_vltn4"]
+[ext_resource type="Texture2D" uid="uid://bfopj0dnalb51" path="res://Assets/Cartes/Cartes faces/c3.svg" id="15_ygnuu"]
+[ext_resource type="Texture2D" uid="uid://b012y3xamftud" path="res://Assets/Cartes/Cartes faces/c4.svg" id="16_klged"]
+[ext_resource type="Texture2D" uid="uid://d0a3v61crsvr3" path="res://Assets/Cartes/Cartes faces/c5.svg" id="17_q4ajp"]
+[ext_resource type="Texture2D" uid="uid://ccvacmek10s6a" path="res://Assets/Cartes/Cartes faces/c6.svg" id="18_pefbt"]
+[ext_resource type="Texture2D" uid="uid://gorgny0ol8tp" path="res://Assets/Cartes/Cartes faces/c7.svg" id="19_2xwnw"]
+[ext_resource type="Texture2D" uid="uid://d4j5iu2nsl6tv" path="res://Assets/Cartes/Cartes faces/c8.svg" id="20_5toii"]
+[ext_resource type="Texture2D" uid="uid://y2rwgp6jmqvv" path="res://Assets/Cartes/Cartes faces/c9.svg" id="21_vcifu"]
+[ext_resource type="Texture2D" uid="uid://b3b47pnk2l1m1" path="res://Assets/Cartes/Cartes faces/c10.svg" id="22_i61eb"]
+[ext_resource type="Texture2D" uid="uid://b43qnrfrccrdw" path="res://Assets/Cartes/Cartes faces/d1.svg" id="23_7w6so"]
+[ext_resource type="Texture2D" uid="uid://bn74li0itac24" path="res://Assets/Cartes/Cartes faces/d2.svg" id="24_51g55"]
+[ext_resource type="Texture2D" uid="uid://dopx7ckl3amk8" path="res://Assets/Cartes/Cartes faces/d3.svg" id="25_bgd4q"]
+[ext_resource type="Texture2D" uid="uid://b23nvot47nutu" path="res://Assets/Cartes/Cartes faces/d4.svg" id="26_ap1p0"]
+[ext_resource type="Texture2D" uid="uid://xr8seitspbe" path="res://Assets/Cartes/Cartes faces/d5.svg" id="27_d3l4v"]
+[ext_resource type="Texture2D" uid="uid://xcfhg3dlydsg" path="res://Assets/Cartes/Cartes faces/d6.svg" id="28_7otmh"]
+[ext_resource type="Texture2D" uid="uid://bdsh6jdac681n" path="res://Assets/Cartes/Cartes faces/d7.svg" id="29_rewcq"]
+[ext_resource type="Texture2D" uid="uid://js3y4amy6uda" path="res://Assets/Cartes/Cartes faces/d8.svg" id="30_yjmyk"]
+[ext_resource type="Texture2D" uid="uid://ccj6ci67cli1e" path="res://Assets/Cartes/Cartes faces/d9.svg" id="31_66hhy"]
+[ext_resource type="Texture2D" uid="uid://c2rfribevm8vq" path="res://Assets/Cartes/Cartes faces/d10.svg" id="32_um7ui"]
+[ext_resource type="Texture2D" uid="uid://dulmr0guqvxov" path="res://Assets/Cartes/Cartes faces/e1.svg" id="33_h6en3"]
+[ext_resource type="Texture2D" uid="uid://cifny6ryhe7r" path="res://Assets/Cartes/Cartes faces/e2.svg" id="34_5ia3t"]
+[ext_resource type="Texture2D" uid="uid://c47k4yahbhvjf" path="res://Assets/Cartes/Cartes faces/e3.svg" id="35_qknuq"]
+[ext_resource type="Texture2D" uid="uid://bvj8ly3lpayy" path="res://Assets/Cartes/Cartes faces/e4.svg" id="36_ibenv"]
+[ext_resource type="Texture2D" uid="uid://dhw65og6td0pb" path="res://Assets/Cartes/Cartes faces/e5.svg" id="37_vwvyq"]
+[ext_resource type="Texture2D" uid="uid://dyw8nx41c5e5a" path="res://Assets/Cartes/Cartes faces/e6.svg" id="38_353ow"]
+[ext_resource type="Texture2D" uid="uid://cfv6mfyx5cmgm" path="res://Assets/Cartes/Cartes faces/e7.svg" id="39_ygy5m"]
+[ext_resource type="Texture2D" uid="uid://cuaynfrv3av2w" path="res://Assets/Cartes/Cartes faces/e8.svg" id="40_0cqrf"]
+[ext_resource type="Texture2D" uid="uid://51rx5wmxjsey" path="res://Assets/Cartes/Cartes faces/e9.svg" id="41_khm2m"]
+[ext_resource type="Texture2D" uid="uid://cypbwcdqr65ch" path="res://Assets/Cartes/Cartes faces/e10.svg" id="42_cgyq5"]
+[ext_resource type="Texture2D" uid="uid://bdij85bmsx1n2" path="res://Assets/pile vide.png" id="43_x5icd"]
+
+[sub_resource type="GDScript" id="GDScript_xuiik"]
+script/source = "extends Container
+
+
+@export var card_color : GeneralGame.Couleurs
+@export var card_valor : GeneralGame.Valeurs
+
+var cardHighlighted = false
+var cardInHand = false
+var cardSelected = false
+var id
+var onBoard = false
+var onBoardSelected = false
+
+func _ready():
+	pass
+	
+func _process(_delta):
+	if cardSelected:
+		if GeneralGame.idCardSelected != id:
+			cardInHand = true
+			cardSelected = false
+			#await $Anim.animation_finished
+			$Anim.play_backwards(\"Select\")
+	pass #si on détecte un changement d'id dans la carte sélected alors on joue 
+	#l'anim select en backwards et on remet la carte dans la main
+	
+
+
+func setup(i):
+	id = i
+	%Cardface.frame = id
+	card_valor = id % 10
+	card_color = id / 10
+	self.name = str(i)
+
+
+func _on_mouse_entered(): #anim de parcourir les cartes en main
+	if cardInHand:
+		$Anim.queue(\"Select\") #monter la carte
+		cardHighlighted = true 
+
+
+func _on_mouse_exited(): #anim de parcourir les cartes en main
+	if cardInHand:
+		if cardSelected:
+			pass
+		else:
+			#await $Anim.animation_finished
+			$Anim.play_backwards(\"Select\") #descendre la carte
+		cardHighlighted = false
+
+func _on_gui_input(event): #au clic sur une carte
+	if (event is InputEventMouseButton) and (event.button_index == 1) and (event.button_mask == 1):
+		#if cardSelected:
+			#cardSelected = false
+			#cardInHand = true
+			#GeneralGame.idCardSelected = null #on conserve l'id de la carte sélectionnée
+			#$Anim.play_backwards(\"Select\")
+		if cardInHand:
+			if !cardSelected:
+				cardSelected = true #la carte est sélectionnée
+				GeneralGame.idCardSelected = id #on conserve l'id de la carte sélectionnée
+				cardInHand = false
+		
+		if onBoard: #sélection sur le plateau
+			if onBoardSelected: ##j'arrive pas à faire marcher ça
+				onBoardDeselect()
+			elif onBoardSelected == false:
+				onBoardSelect()
+		
+	
+func onBoardSelect():
+	$Cardback/Contour.visible = true
+	$Anim.queue(\"Select\") #monter la carte
+	onBoardSelected = true
+
+func onBoardDeselect():
+	if cardHighlighted:
+		pass
+	else:
+		$Cardback/Contour.visible = false
+		#await $Anim.animation_finished
+		$Anim.play_backwards(\"Select\") #descendre la carte
+		onBoardSelected = false
+
+
+func flip():
+	$Anim.queue(\"flip\")
+		
+		#if event.button_mask == 1:
+			##press down
+			#if cardHighlighted:
+				#var cardTemp = card.instantiate()
+				#get_tree().get_root().get_node(\"Game/Board/CardHolder\").add_child(cardTemp)
+				#GeneralGame.CardSelected = true
+				#if cardHighlighted:
+					#self.get_child(0).hide()
+		#elif event.button_mask == 0:
+			##press up
+			#if !GeneralGame.mouseOnPlacement: #place card not on board
+				#cardHighlighted = false
+				#self.get_child(0).show()
+				##self.queue_free() #supprimer la carte de la main
+			#else:
+				#pass
+				##place card on board : DECIDER WHAT HAPPENS NEXT
+				##self.queue_free()
+				##get_node(\"%ZoneDepot\").placeCard()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nw7bt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7x0wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b8ggu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_260r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iwbgd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s40ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vkbvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oowb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_128oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_a4656")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jeke8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y2r1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vltn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ygnuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_klged")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_q4ajp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_pefbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2xwnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5toii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_vcifu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_i61eb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_7w6so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_51g55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bgd4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ap1p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_d3l4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7otmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_rewcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_yjmyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_66hhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_um7ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_h6en3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_5ia3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_qknuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ibenv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_vwvyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_353ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ygy5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_0cqrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_khm2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_cgyq5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Carte_test" type="Container"]
+custom_minimum_size = Vector2(32, 48)
+anchors_preset = -1
+anchor_top = 0.013
+anchor_bottom = 0.013
+offset_left = -18.0
+offset_top = -35.424
+offset_right = 26.0
+offset_bottom = 44.576
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(24, 36)
+script = SubResource("GDScript_xuiik")
+
+[node name="Cardback" type="Sprite2D" parent="."]
+texture_filter = 4
+position = Vector2(24, 40)
+scale = Vector2(0.078, 0.078)
+texture = ExtResource("2_577e8")
+
+[node name="Cardface" type="AnimatedSprite2D" parent="Cardback"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0.000244141, 0)
+sprite_frames = SubResource("SpriteFrames_nw7bt")
+
+[node name="Contour" type="Sprite2D" parent="Cardback"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 4
+texture = ExtResource("43_x5icd")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

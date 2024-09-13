@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciyf0oi68dbi0"]
+[gd_scene load_steps=6 format=3 uid="uid://hnsv5m8qdfl1"]
 
-[ext_resource type="Script" path="res://scripts/score.gd" id="1_706kn"]
-[ext_resource type="Texture2D" uid="uid://bqbxyjpa62ikt" path="res://Assets/Cartes/icons/fleche_left.svg" id="2_oqede"]
-[ext_resource type="Texture2D" uid="uid://bab58821jeeut" path="res://Assets/Cartes/icons/cancel.svg" id="2_rb6xh"]
-[ext_resource type="Texture2D" uid="uid://dyj05sq3tsmtg" path="res://Assets/Cartes/icons/fleche_right.svg" id="3_uxjxc"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="1_hb2qs"]
+[ext_resource type="Texture2D" uid="uid://bqbxyjpa62ikt" path="res://Assets/Cartes/icons/fleche_left.svg" id="2_3llwp"]
+[ext_resource type="Texture2D" uid="uid://dyj05sq3tsmtg" path="res://Assets/Cartes/icons/fleche_right.svg" id="3_ybx17"]
+[ext_resource type="PackedScene" uid="uid://ce03u60vciwct" path="res://scenes/carte.tscn" id="4_sute2"]
+[ext_resource type="Texture2D" uid="uid://bab58821jeeut" path="res://Assets/Cartes/icons/cancel.svg" id="4_xof1u"]
 
 [node name="Score" type="PanelContainer"]
 anchors_preset = 8
@@ -19,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_706kn")
+script = ExtResource("1_hb2qs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
@@ -46,7 +47,7 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 10
-icon = ExtResource("2_oqede")
+icon = ExtResource("2_3llwp")
 icon_alignment = 1
 expand_icon = true
 
@@ -61,7 +62,7 @@ text = "MANCHE 1"
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 2
-icon = ExtResource("3_uxjxc")
+icon = ExtResource("3_ybx17")
 expand_icon = true
 
 [node name="PlisButton" type="Button" parent="Marges/Lignes/En-tête"]
@@ -75,44 +76,49 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 
-[node name="Plis" type="AspectRatioContainer" parent="Marges/Lignes"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Marges/Lignes"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment_horizontal = 0
+alignment_vertical = 0
 
-[node name="VBox" type="VBoxContainer" parent="Marges/Lignes/Plis"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Marges/Lignes/AspectRatioContainer"]
 layout_mode = 2
 
-[node name="Player1" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player1"]
+[node name="Label" type="Label" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Joueur 1"
-vertical_alignment = 1
 
-[node name="Player2" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player2"]
+[node name="Label" type="Label" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Joueur 2"
 
-[node name="Player3" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player3"]
+[node name="Label" type="Label" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Joueur 3"
 
-[node name="Player4" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
+[node name="Carte2" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_sute2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 144)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player4"]
+[node name="Label" type="Label" parent="Marges/Lignes/AspectRatioContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 text = "Joueur 4"
 
@@ -136,7 +142,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 size_flags_stretch_ratio = 2.12
-icon = ExtResource("2_rb6xh")
+icon = ExtResource("4_xof1u")
 expand_icon = true
 
 [connection signal="change_active_manche" from="." to="." method="_on_change_active_manche"]

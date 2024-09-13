@@ -13,7 +13,6 @@ func _on_close_score_button_pressed() -> void:
 
 func _on_ready() -> void:
 	#await get_tree().create_timer(0.05).timeout
-	
 	new_round()
 
 func new_round() -> void: #création d'une manche
