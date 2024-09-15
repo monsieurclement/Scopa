@@ -2,10 +2,11 @@ extends PanelContainer
 
 var nb_players
 const MANCHE_1 = preload("res://scenes/manche_1.tscn")
+const PLIS = preload("res://scenes/plis.tscn")
+
 var manche_array = [] #array qui contient toutes les manches
 var active_manche:int = 0 #indice de la manche active
 signal change_active_manche
-
 
 func _on_close_score_button_pressed() -> void:
 	self.visible = false #fermer la fenêtre
@@ -23,13 +24,22 @@ func new_round() -> void: #création d'une manche
 	else:
 		new_manche = manche_array[-1] + 1
 		
-	manche_array.append(new_manche)
-	var manche = MANCHE_1.instantiate()
+	manche_array.append(new_manche) #changer les arrays
+	
+	var manche = MANCHE_1.instantiate() #ajout de la feuille de pts
 	manche.visible = false
 	manche.manche_nb = new_manche
 	manche.name = "manche"+str(new_manche)
 	$Marges/Lignes.add_child(manche) #ajout de la nouvelle manche
 	$Marges/Lignes.move_child($Marges/Lignes.get_node("manche"+str(new_manche)),-3) #mise en place pour pas bouger le bouton
+	
+	var plis = PLIS.instantiate() #ajout des plis
+	plis.visible = false
+	plis.name = "plis"+str(new_manche)
+	$Marges/Lignes.add_child(plis) #ajout de la nouvelle manche
+	$Marges/Lignes.move_child($Marges/Lignes.get_node("plis"+str(new_manche)),-3) #mise en place pour pas bouger le bouton
+	
+	
 	change_active_manche.emit()
 
 
@@ -58,10 +68,22 @@ func _on_change_active_manche() -> void:
 	
 
 func _on_plis_button_pressed() -> void:
-	pass
-	#new_round()
-	#$Marges/Lignes.get_node("manche1").actualize_points()
-
+	%PlisButton.change_state() #état plis ou score
+	if %PlisButton.state == false: #si score
+		for j in $"Marges/Lignes".get_children(): #on rend invisibles les plis
+			for i in manche_array: 
+				if j.name == "plis"+str(i):
+					j.visible = false
+				if j.name == "manche"+str(i) and i == active_manche+1:#rend visible le pli en cours
+					j.visible = true
+	else: #si plis
+		for j in $"Marges/Lignes".get_children(): #on rend invisibles les points
+			for i in manche_array: 
+				if j.name == "manche"+str(i):
+					j.visible = false
+				if j.name == "plis"+str(i) and i == active_manche+1: #rend visible le pli en cours
+					j.visible = true
+		
 
 func _on_next_round_button_pressed() -> void:
 	%NextRoundButton.visible = false

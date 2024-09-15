@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciyf0oi68dbi0"]
+[gd_scene load_steps=6 format=3 uid="uid://ciyf0oi68dbi0"]
 
 [ext_resource type="Script" path="res://scripts/score.gd" id="1_706kn"]
 [ext_resource type="Texture2D" uid="uid://bqbxyjpa62ikt" path="res://Assets/Cartes/icons/fleche_left.svg" id="2_oqede"]
 [ext_resource type="Texture2D" uid="uid://bab58821jeeut" path="res://Assets/Cartes/icons/cancel.svg" id="2_rb6xh"]
 [ext_resource type="Texture2D" uid="uid://dyj05sq3tsmtg" path="res://Assets/Cartes/icons/fleche_right.svg" id="3_uxjxc"]
+
+[sub_resource type="GDScript" id="GDScript_3cxif"]
+script/source = "extends Button
+var state:bool = false
+
+func change_state():
+	if state == false: #state plis
+		state = true
+		self.text = \"Voir les points\"
+	else: #state score
+		state = false
+		self.text = \"Voir les plis\"
+"
 
 [node name="Score" type="PanelContainer"]
 anchors_preset = 8
@@ -65,56 +78,17 @@ icon = ExtResource("3_uxjxc")
 expand_icon = true
 
 [node name="PlisButton" type="Button" parent="Marges/Lignes/En-tête"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Voir les plis"
+script = SubResource("GDScript_3cxif")
 
 [node name="Space2" type="Control" parent="Marges/Lignes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
-
-[node name="Plis" type="AspectRatioContainer" parent="Marges/Lignes"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment_horizontal = 0
-
-[node name="VBox" type="VBoxContainer" parent="Marges/Lignes/Plis"]
-layout_mode = 2
-
-[node name="Player1" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player1"]
-layout_mode = 2
-text = "Joueur 1"
-vertical_alignment = 1
-
-[node name="Player2" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player2"]
-layout_mode = 2
-text = "Joueur 2"
-
-[node name="Player3" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player3"]
-layout_mode = 2
-text = "Joueur 3"
-
-[node name="Player4" type="HBoxContainer" parent="Marges/Lignes/Plis/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PlayerLabel" type="Label" parent="Marges/Lignes/Plis/VBox/Player4"]
-layout_mode = 2
-text = "Joueur 4"
 
 [node name="Space3" type="Control" parent="Marges/Lignes"]
 layout_mode = 2
@@ -141,7 +115,6 @@ expand_icon = true
 
 [connection signal="change_active_manche" from="." to="." method="_on_change_active_manche"]
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/PlisButton" to="." method="_on_plis_button_pressed"]

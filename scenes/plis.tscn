@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4n7aofifsxyw"]
+
+[ext_resource type="Script" path="res://scripts/plis_manche.gd" id="1_olddj"]
+
+[node name="Plis_manche" type="AspectRatioContainer"]
+size_flags_vertical = 3
+alignment_horizontal = 0
+script = ExtResource("1_olddj")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Player1" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerLabel" type="Label" parent="VBox/Player1"]
+layout_mode = 2
+text = "Joueur 1"
+vertical_alignment = 1
+
+[node name="Player2" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerLabel" type="Label" parent="VBox/Player2"]
+layout_mode = 2
+text = "Joueur 2"
+
+[node name="Player3" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerLabel" type="Label" parent="VBox/Player3"]
+layout_mode = 2
+text = "Joueur 3"
+
+[node name="Player4" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerLabel" type="Label" parent="VBox/Player4"]
+layout_mode = 2
+text = "Joueur 4"

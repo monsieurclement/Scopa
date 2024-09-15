@@ -590,6 +590,7 @@ func decompte_points(plis):
 	
 	
 	%Score/Marges/Lignes.get_node("manche"+str(%Score.manche_array[-1])).actualize_points(GeneralGame.score_to_actualize)
+	%Score/Marges/Lignes.get_node("plis"+str(%Score.manche_array[-1])).actualize_plis(GeneralGame.players_plis)
 	#%Score.active_manche = nb_round-1
 	%Score.new_round()
 	GeneralGame.score_to_actualize = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]

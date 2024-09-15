@@ -303,7 +303,6 @@ texture = ExtResource("2_577e8")
 
 [node name="Cardface" type="AnimatedSprite2D" parent="Cardback"]
 unique_name_in_owner = true
-z_index = -1
 position = Vector2(0.000244141, 0)
 sprite_frames = SubResource("SpriteFrames_nw7bt")
 

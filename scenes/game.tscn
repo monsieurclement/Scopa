@@ -10,8 +10,17 @@
 [ext_resource type="Script" path="res://scripts/Deck.gd" id="7_2whfm"]
 [ext_resource type="Texture2D" uid="uid://x4r7m1675l65" path="res://Assets/Cartes/Card back.svg" id="9_8buox"]
 [ext_resource type="PackedScene" uid="uid://bs2w5nch457dn" path="res://scenes/rules.tscn" id="9_ijnvs"]
-[ext_resource type="Script" path="res://scripts/Plis.gd" id="10_a06ab"]
 [ext_resource type="PackedScene" uid="uid://ciyf0oi68dbi0" path="res://scenes/score.tscn" id="12_443po"]
+
+[sub_resource type="GDScript" id="GDScript_prfto"]
+script/source = "extends HBoxContainer
+
+func _process(_delta):
+	if GeneralGame.players_plis[0].size() == 0 :
+		$plein.visible = false
+	else:
+		$plein.visible = true
+"
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6r4s3")
@@ -208,7 +217,7 @@ offset_right = 127.0
 offset_bottom = 798.0
 size_flags_vertical = 4
 alignment = 1
-script = ExtResource("10_a06ab")
+script = SubResource("GDScript_prfto")
 
 [node name="vide" type="Sprite2D" parent="Board/UI/Plis"]
 texture_filter = 4
