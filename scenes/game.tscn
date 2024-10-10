@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ktnb1qx3lml1"]
+[gd_scene load_steps=15 format=3 uid="uid://ktnb1qx3lml1"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_6r4s3"]
-[ext_resource type="Texture2D" uid="uid://bdd8xptsrr8h5" path="res://Assets/Cartes/icons/exit-door (1).png" id="2_gneho"]
+[ext_resource type="Texture2D" uid="uid://crd08r4h6qr1e" path="res://Assets/Cartes/icons/pokecog.svg" id="2_gwekk"]
 [ext_resource type="Script" path="res://scripts/CardContainer.gd" id="3_6syq3"]
 [ext_resource type="Texture2D" uid="uid://4h2qhhxe8lhw" path="res://Assets/Cartes/icons/histogram.svg" id="3_60xl6"]
 [ext_resource type="PackedScene" uid="uid://d38kdy7t03g80" path="res://scenes/player.tscn" id="4_g7fix"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/Deck.gd" id="7_2whfm"]
 [ext_resource type="Texture2D" uid="uid://x4r7m1675l65" path="res://Assets/Cartes/Card back.svg" id="9_8buox"]
 [ext_resource type="PackedScene" uid="uid://bs2w5nch457dn" path="res://scenes/rules.tscn" id="9_ijnvs"]
+[ext_resource type="PackedScene" uid="uid://balni2jh5uo8e" path="res://scenes/fake_confetti_particles.tscn" id="10_tk43u"]
+[ext_resource type="PackedScene" uid="uid://hnsv5m8qdfl1" path="res://scenes/setting_screen.tscn" id="12_5pmda"]
 [ext_resource type="PackedScene" uid="uid://ciyf0oi68dbi0" path="res://scenes/score.tscn" id="12_443po"]
 
 [sub_resource type="GDScript" id="GDScript_prfto"]
@@ -45,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.364706, 0, 1)
 
-[node name="QuitButton" type="Button" parent="Board/UI"]
+[node name="SettingsButton" type="Button" parent="Board/UI"]
 modulate = Color(1, 0.952941, 1, 1)
 anchors_preset = 1
 anchor_left = 1.0
@@ -63,7 +65,7 @@ theme_override_constants/outline_size = 0
 theme_override_constants/h_separation = 0
 theme_override_constants/icon_max_width = 0
 theme_override_font_sizes/font_size = 50
-icon = ExtResource("2_gneho")
+icon = ExtResource("2_gwekk")
 flat = true
 vertical_icon_alignment = 0
 expand_icon = true
@@ -238,7 +240,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -805.0
+offset_left = -821.0
 offset_top = -95.0
 offset_right = -5.0
 offset_bottom = 49.0
@@ -299,12 +301,52 @@ text = "Vous devez choisir les cartes à capturer."
 
 [node name="message_1" type="Label" parent="Board/UI"]
 offset_left = 803.0
-offset_top = 431.0
+offset_top = 402.0
 offset_right = 1107.0
-offset_bottom = 454.0
+offset_bottom = 425.0
 text = "Joueur X commence."
 
+[node name="message_2" type="Label" parent="Board/UI"]
+offset_left = 803.0
+offset_top = 429.0
+offset_right = 1107.0
+offset_bottom = 452.0
+
+[node name="EndConfetti" parent="Board/UI" instance=ExtResource("10_tk43u")]
+unique_name_in_owner = true
+type = 1
+visibility_rect = Rect2(0, 0, 1200, 500)
+colors = [Color(0.817762, 0.000218514, 0.732245, 1), Color(0.844205, 0, 0.0760405, 1), Color(0.917647, 1, 0, 1), Color(0, 0.15222, 0.980566, 1), Color(0.751047, 0.372391, 0.0826464, 1), Color(0.100247, 0.53286, 1, 1), Color(1, 1, 1, 1), Color(0.0757382, 0.856144, 0.62833, 1), Color(1, 0.92549, 0.152941, 1)]
+fade = false
+timer_wait_time = 1.2
+
+[node name="ScopaConf1" parent="Board/UI" instance=ExtResource("10_tk43u")]
+unique_name_in_owner = true
+position = Vector2(800, 150)
+type = 1
+visibility_rect = Rect2(0, 0, 1200, 500)
+colors = [Color(0.817762, 0.000218514, 0.732245, 1), Color(0.844205, 0, 0.0760405, 1), Color(0.917647, 1, 0, 1), Color(0, 0.15222, 0.980566, 1), Color(0.751047, 0.372391, 0.0826464, 1), Color(0.100247, 0.53286, 1, 1), Color(1, 1, 1, 1), Color(0.0757382, 0.856144, 0.62833, 1), Color(1, 0.92549, 0.152941, 1)]
+random_position = false
+one_shot = true
+fade = false
+timer_wait_time = 1.2
+
+[node name="ScopaConf2" parent="Board/UI" instance=ExtResource("10_tk43u")]
+unique_name_in_owner = true
+position = Vector2(300, 150)
+type = 1
+visibility_rect = Rect2(0, 0, 1200, 500)
+colors = [Color(0.817762, 0.000218514, 0.732245, 1), Color(0.844205, 0, 0.0760405, 1), Color(0.917647, 1, 0, 1), Color(0, 0.15222, 0.980566, 1), Color(0.751047, 0.372391, 0.0826464, 1), Color(0.100247, 0.53286, 1, 1), Color(1, 1, 1, 1), Color(0.0757382, 0.856144, 0.62833, 1), Color(1, 0.92549, 0.152941, 1)]
+random_position = false
+one_shot = true
+fade = false
+timer_wait_time = 1.2
+
 [node name="Rules" parent="Board/UI" instance=ExtResource("9_ijnvs")]
+visible = false
+
+[node name="Settings" parent="Board/UI" instance=ExtResource("12_5pmda")]
+unique_name_in_owner = true
 visible = false
 
 [node name="Score" parent="Board/UI" instance=ExtResource("12_443po")]
@@ -316,7 +358,7 @@ visible = false
 [connection signal="player_played" from="." to="." method="_on_player_played"]
 [connection signal="round_finished" from="." to="." method="_on_round_finished"]
 [connection signal="scopa" from="." to="." method="_on_scopa"]
-[connection signal="pressed" from="Board/UI/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Board/UI/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Board/UI/ScoreButton" to="." method="_on_score_button_pressed"]
 [connection signal="pressed" from="Board/UI/RulesButton" to="." method="_on_rules_button_pressed"]
 [connection signal="mouse_entered" from="Board/UI/Hand" to="Board/UI/Hand" method="_on_mouse_entered"]
@@ -332,3 +374,7 @@ visible = false
 [connection signal="mouse_entered" from="Board/UI/Board" to="Board/UI/Board" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Board/UI/Board" to="Board/UI/Board" method="_on_mouse_exited"]
 [connection signal="pressed" from="Board/UI/PlayButton" to="." method="_on_play_button_pressed"]
+
+[editable path="Board/UI/EndConfetti"]
+[editable path="Board/UI/ScopaConf1"]
+[editable path="Board/UI/ScopaConf2"]

@@ -1,0 +1,217 @@
+[gd_scene load_steps=5 format=3 uid="uid://hnsv5m8qdfl1"]
+
+[ext_resource type="Texture2D" uid="uid://bdd8xptsrr8h5" path="res://Assets/Cartes/icons/exit-door (1).png" id="1_fqhxe"]
+[ext_resource type="Texture2D" uid="uid://bab58821jeeut" path="res://Assets/Cartes/icons/cancel.svg" id="3_kg5um"]
+
+[sub_resource type="GDScript" id="GDScript_ght6j"]
+script/source = "extends PanelContainer
+
+
+
+
+func _on_close_settings_button_pressed() -> void:
+	self.visible = false
+	
+
+func quit():
+	GeneralGame.deck = [] #reset des arrays
+	GeneralGame.players_hands = [[],[],[],[]]
+	GeneralGame.players_plis = [[],[],[],[]]
+	GeneralGame.board = []
+	GeneralGame.points = [0,0,0,0]
+	get_tree().change_scene_to_file(\"res://scenes/menu.tscn\") #retour au menu principal
+
+
+func _on_quit_button_pressed() -> void:
+	quit()
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	var nb = int(%NbPlayersButton.get_item_text(index))
+	GeneralGame.nb_players = nb
+	
+
+
+func _on_line_edit_text_changed(new_text: String) -> void:
+	GeneralGame.points_to_win = int(new_text)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnrul"]
+font_size = 11
+
+[node name="Settings" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.5
+offset_top = -177.0
+offset_right = 322.5
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = SubResource("GDScript_ght6j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="Marges" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+
+[node name="Lignes" type="VBoxContainer" parent="Marges"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Marges/Lignes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 28
+text = "PARAMETRES"
+
+[node name="Space2" type="Control" parent="Marges/Lignes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Marges/Lignes"]
+layout_mode = 2
+alignment = 1
+
+[node name="Space4" type="Control" parent="Marges/Lignes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="GridContainer" type="GridContainer" parent="Marges/Lignes/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="FullscreenLabel" type="Label" parent="Marges/Lignes/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 16
+text = "Plein écran"
+horizontal_alignment = 2
+
+[node name="CheckButton" type="CheckButton" parent="Marges/Lignes/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="PointsLabel" type="Label" parent="Marges/Lignes/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 16
+text = "Total de points pour gagner"
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="Marges/Lignes/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "21"
+alignment = 1
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Marges/Lignes/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NbPlayersLabel" type="Label" parent="Marges/Lignes/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 16
+text = "Nombre de joueurs"
+horizontal_alignment = 2
+
+[node name="NbPlayersLabel2" type="Label" parent="Marges/Lignes/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 6.96
+theme_override_font_sizes/font_size = 16
+text = "(ne peut pas être modifié en cours de partie !)"
+label_settings = SubResource("LabelSettings_qnrul")
+horizontal_alignment = 2
+
+[node name="NbPlayersButton" type="OptionButton" parent="Marges/Lignes/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+item_count = 3
+popup/item_0/text = "2"
+popup/item_1/text = "3"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+
+[node name="Space3" type="Control" parent="Marges/Lignes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Space4" type="Control" parent="Marges/Lignes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Marges/Lignes"]
+layout_mode = 2
+
+[node name="Space4" type="Control" parent="Marges/Lignes/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+size_flags_stretch_ratio = 1.18
+
+[node name="QuitButton" type="Button" parent="Marges/Lignes/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.35
+text = "Retourner au menu principal"
+icon = ExtResource("1_fqhxe")
+expand_icon = true
+
+[node name="Space3" type="Control" parent="Marges/Lignes/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+size_flags_stretch_ratio = 1.18
+
+[node name="CloseSettingsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.12
+icon = ExtResource("3_kg5um")
+expand_icon = true
+
+[connection signal="toggled" from="Marges/Lignes/VBoxContainer/GridContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="text_changed" from="Marges/Lignes/VBoxContainer/GridContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="item_selected" from="Marges/Lignes/VBoxContainer/GridContainer/NbPlayersButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Marges/Lignes/HBoxContainer4/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GeneralGame="*res://GeneralGame.gd"
+EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
 
 [display]
 
@@ -26,6 +27,10 @@ window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://Assets/curseur de souris.png"
 mouse_cursor/custom_image_hotspot=Vector2(10, 8)
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fabimakesgames.embed_game/plugin.cfg")
 
 [filesystem]
 

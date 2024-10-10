@@ -24,10 +24,9 @@ var nb_round = 1
 
 
 func _ready():
-	GeneralGame.nb_players = nb_player
+	nb_player = GeneralGame.nb_players
 	GeneralGame.timer = timer
 	reset_game() #remise à zéro des arrays et destruction des enfants
-	
 	
 	#var score_test = [[0,1,0,3],[1,0,0,0],[0,1,0,0],[0,0,1,0],[50,67,99,71],[0,0,1,0],[1,2,3,4],[9,12,14,19]]
 	#%Score/Marges/Lignes.get_node("manche"+str(%Score.manche_array[-1])).actualize_points(score_test)
@@ -37,9 +36,11 @@ func _process(_delta):
 	for i in [2,3,4]:
 		$"Board/UI/Players".get_node("joueur"+str(i)).main(GeneralGame.players_hands[i-1].size())
 		$"Board/UI/Players".get_node("joueur"+str(i)).pile(GeneralGame.players_plis[i-1].size())
-	
 			
-func _on_quit_button_pressed():
+func _on_settings_button_pressed():
+	%Settings.visible = true
+
+func quit():
 	GeneralGame.deck = [] #reset des arrays
 	GeneralGame.players_hands = [[],[],[],[]]
 	GeneralGame.players_plis = [[],[],[],[]]
@@ -65,7 +66,8 @@ func _on_play_button_pressed(): #animation de jouer la carte et passer son tour
 	for card in $Board/UI/Board.get_children():
 		if card.onBoardSelected == true and !card.cardHighlighted :
 			card.onBoardDeselect()
-			
+	
+	$Board/UI/message_2.text = ""
 
 func player_random_commence():
 	#order suit le nb de joueurs
@@ -486,9 +488,10 @@ func _on_round_finished():
 	
 		#apparition d'un menu de point, et on relance pas avant qu'on appuie sur un bouton
 	%Score.visible = true
-	%Score/Marges/Lignes/NextRoundButton.visible = true
 	%Score/CloseScoreButton.visible = false
-	await %Score._on_next_round_button_pressed
+	if !%Score.end_of_game:
+		%Score/Marges/Lignes/NextRoundButton.visible = true
+	await %Score.next_manche
 	reset_game()
 	
 func decompte_points(plis):
@@ -507,6 +510,7 @@ func decompte_points(plis):
 	if score.count(score.max()) == 1:
 		GeneralGame.points[score.find(score.max())] += 1
 		GeneralGame.score_to_actualize[1][score.find(score.max())] += 1
+		%Score.end_of_game = true
 		#print("plus gd nb de carte : Joueur ",score.find(score.max())+1)
 	#else:
 		#print("plus gd nb de carte : aucun joueur")
@@ -597,21 +601,33 @@ func decompte_points(plis):
 	
 	
 	for i in range(GeneralGame.points.size()):
-		if GeneralGame.points[i]>21: #!!! prendre en compte égalités et scores multiples supérieurs à 21
-			print("Joueur "+str(i+1)+" a gagné !!")
+		if GeneralGame.points[i]>GeneralGame.points_to_win: #!!! prendre en compte égalités et scores multiples supérieurs à 21
+			#print("Joueur "+str(i+1)+" a gagné !!")
+			GeneralGame.winner = i+1
 			game_finished.emit()
 	
 	
 func _on_scopa():
 	scopas.append(GeneralGame.order[0])
-	print("Bravo ! Scopa ! Joueur ", str(GeneralGame.order[0]+1)," marque 1 point !")
+	%ScopaConf1.emitting = true
+	%ScopaConf2.emitting = true	
+	$Board/UI/message_2.text = "Bravo ! Scopa ! Joueur " + str(GeneralGame.order[0]+1) +" marque 1 point !"
+	
+	
 
 func _on_player_played():
 	pass # Replace with function body.
 
 
 func _on_game_finished() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu.tscn") #retour au menu principal
+	%Score.visible = true
+	%EndConfetti.emitting = true
+	%Score/Marges/Lignes/EndingLabel.text = "JOUEUR " + str(GeneralGame.winner) + " A GAGNE !!"
+	%Score/Marges/Lignes/EndingLabel.visible = true
+	%Score/Marges/Lignes/EndingButtons.visible = true
+	%Score/Marges/Lignes/NextRoundButton.visible = false
+	#get_tree().change_scene_to_file("res://scenes/menu.tscn") #retour au menu principal
+	pass
 
 func sum_of_arrays(array1,array2):
 	if array1.size() == array2.size():

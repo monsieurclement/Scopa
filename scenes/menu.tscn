@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxyar0fcp2f14"]
+[gd_scene load_steps=4 format=3 uid="uid://dxyar0fcp2f14"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_fgmpm"]
 [ext_resource type="PackedScene" uid="uid://bs2w5nch457dn" path="res://scenes/rules.tscn" id="2_ugivg"]
+[ext_resource type="PackedScene" uid="uid://hnsv5m8qdfl1" path="res://scenes/setting_screen.tscn" id="3_tyovh"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -27,8 +28,9 @@ anchor_left = 0.032
 anchor_top = 0.792
 anchor_right = 0.116
 anchor_bottom = 0.842
-offset_right = 46.0
-offset_bottom = 66.0
+offset_top = -24.0
+offset_right = 48.232
+offset_bottom = 79.6
 
 [node name="Start" type="Button" parent="MenuImage/VBoxContainer"]
 unique_name_in_owner = true
@@ -38,6 +40,10 @@ text = "Lancer une partie"
 [node name="Rules" type="Button" parent="MenuImage/VBoxContainer"]
 layout_mode = 2
 text = "Règles"
+
+[node name="Settings" type="Button" parent="MenuImage/VBoxContainer"]
+layout_mode = 2
+text = "Paramètres"
 
 [node name="Quit" type="Button" parent="MenuImage/VBoxContainer"]
 layout_mode = 2
@@ -55,9 +61,13 @@ text = "SCOPA"
 unique_name_in_owner = true
 visible = false
 
+[node name="Settings" parent="MenuImage" instance=ExtResource("3_tyovh")]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="MenuImage"]
 position = Vector2(578, 324)
 
 [connection signal="pressed" from="MenuImage/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MenuImage/VBoxContainer/Rules" to="." method="_on_rules_pressed"]
+[connection signal="pressed" from="MenuImage/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuImage/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

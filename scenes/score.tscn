@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciyf0oi68dbi0"]
+[gd_scene load_steps=8 format=3 uid="uid://ciyf0oi68dbi0"]
 
 [ext_resource type="Script" path="res://scripts/score.gd" id="1_706kn"]
 [ext_resource type="Texture2D" uid="uid://bqbxyjpa62ikt" path="res://Assets/Cartes/icons/fleche_left.svg" id="2_oqede"]
 [ext_resource type="Texture2D" uid="uid://bab58821jeeut" path="res://Assets/Cartes/icons/cancel.svg" id="2_rb6xh"]
 [ext_resource type="Texture2D" uid="uid://dyj05sq3tsmtg" path="res://Assets/Cartes/icons/fleche_right.svg" id="3_uxjxc"]
+[ext_resource type="Texture2D" uid="uid://dpwopo6gpxf18" path="res://Assets/Cartes/icons/anticlockwise-rotation.svg" id="4_lngs7"]
+[ext_resource type="Texture2D" uid="uid://bdd8xptsrr8h5" path="res://Assets/Cartes/icons/exit-door (1).png" id="5_3h3bw"]
 
 [sub_resource type="GDScript" id="GDScript_3cxif"]
 script/source = "extends Button
@@ -47,6 +49,13 @@ theme_override_constants/margin_bottom = 30
 
 [node name="Lignes" type="VBoxContainer" parent="Marges"]
 layout_mode = 2
+
+[node name="EndingLabel" type="Label" parent="Marges/Lignes"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "player 1 won !!!"
+horizontal_alignment = 1
 
 [node name="En-tête" type="HBoxContainer" parent="Marges/Lignes"]
 layout_mode = 2
@@ -104,7 +113,48 @@ text = "Passer à la prochaine manche"
 icon_alignment = 2
 expand_icon = true
 
+[node name="EndingButtons" type="HBoxContainer" parent="Marges/Lignes"]
+visible = false
+layout_mode = 2
+
+[node name="Space5" type="Control" parent="Marges/Lignes/EndingButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="AgainButton" type="Button" parent="Marges/Lignes/EndingButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 5
+text = "Recommencer une partie"
+icon = ExtResource("4_lngs7")
+expand_icon = true
+
+[node name="Space4" type="Control" parent="Marges/Lignes/EndingButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="QuitButton" type="Button" parent="Marges/Lignes/EndingButtons"]
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 5
+text = "Quitter le jeu"
+icon = ExtResource("5_3h3bw")
+expand_icon = true
+
+[node name="Space6" type="Control" parent="Marges/Lignes/EndingButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
 [node name="CloseScoreButton" type="Button" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -114,9 +164,12 @@ icon = ExtResource("2_rb6xh")
 expand_icon = true
 
 [connection signal="change_active_manche" from="." to="." method="_on_change_active_manche"]
+[connection signal="next_manche" from="." to="." method="_on_next_manche"]
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="Marges/Lignes/En-tête/PlisButton" to="." method="_on_plis_button_pressed"]
 [connection signal="pressed" from="Marges/Lignes/NextRoundButton" to="." method="_on_next_round_button_pressed"]
+[connection signal="pressed" from="Marges/Lignes/EndingButtons/AgainButton" to="." method="_on_again_button_pressed"]
+[connection signal="pressed" from="Marges/Lignes/EndingButtons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CloseScoreButton" to="." method="_on_close_score_button_pressed"]

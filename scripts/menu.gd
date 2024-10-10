@@ -22,3 +22,7 @@ func _on_rules_pressed():
 
 func _on_close_rules_button_pressed():
 	%Rules.visible = false
+
+
+func _on_settings_pressed() -> void:
+	$MenuImage/Settings.visible = true
