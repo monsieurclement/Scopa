@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxyar0fcp2f14"]
+[gd_scene load_steps=8 format=3 uid="uid://dxyar0fcp2f14"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_fgmpm"]
 [ext_resource type="PackedScene" uid="uid://bs2w5nch457dn" path="res://scenes/rules.tscn" id="2_ugivg"]
 [ext_resource type="PackedScene" uid="uid://hnsv5m8qdfl1" path="res://scenes/setting_screen.tscn" id="3_tyovh"]
+[ext_resource type="Texture2D" uid="uid://b344yphkhg0dj" path="res://Assets/Title.png" id="4_ncvsd"]
+[ext_resource type="Texture2D" uid="uid://d3es4sagqluax" path="res://Assets/Cartes/Denier.png" id="5_cklvx"]
+[ext_resource type="Texture2D" uid="uid://chq4pn1freiwk" path="res://Assets/Cartes/Baton.png" id="6_475n5"]
+[ext_resource type="Texture2D" uid="uid://dskckf7apr63x" path="res://Assets/Cartes/Coupe.png" id="7_pc7gg"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -22,15 +26,36 @@ offset_right = 1782.0
 offset_bottom = 891.0
 color = Color(0, 0.364706, 0, 1)
 
+[node name="Title" type="Sprite2D" parent="MenuImage"]
+position = Vector2(453, 265)
+texture = ExtResource("4_ncvsd")
+
+[node name="Denier" type="Sprite2D" parent="MenuImage"]
+position = Vector2(961, 141)
+scale = Vector2(0.260638, 0.260638)
+texture = ExtResource("5_cklvx")
+
+[node name="Baton" type="Sprite2D" parent="MenuImage"]
+position = Vector2(1076, 398)
+rotation = 1.6825
+scale = Vector2(0.343215, 0.343215)
+texture = ExtResource("6_475n5")
+
+[node name="Coupe" type="Sprite2D" parent="MenuImage"]
+position = Vector2(887, 423)
+scale = Vector2(0.32375, 0.32375)
+texture = ExtResource("7_pc7gg")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuImage"]
 anchors_preset = -1
 anchor_left = 0.032
 anchor_top = 0.792
 anchor_right = 0.116
 anchor_bottom = 0.842
-offset_top = -24.0
-offset_right = 48.232
-offset_bottom = 79.6
+offset_left = 62.136
+offset_top = -63.216
+offset_right = 250.368
+offset_bottom = 41.384
 
 [node name="Start" type="Button" parent="MenuImage/VBoxContainer"]
 unique_name_in_owner = true
@@ -50,6 +75,7 @@ layout_mode = 2
 text = "Quitter"
 
 [node name="Label" type="Label" parent="MenuImage"]
+visible = false
 offset_left = 371.0
 offset_top = 162.0
 offset_right = 723.0
