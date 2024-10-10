@@ -42,7 +42,7 @@ text = "[center][b][u][font_size={20}]Règles de la scopa[/font_size][/u][/b][/c
 
 [u]Déroulé d'une manche :[/u]	
 
-	Au début de chaque manche, on met 4 cartes sur le [b]plateau[/b], et on distribue 3 cartes à chaque joueur. A son tour, un joueur va sélectionner une carte de sa main. Celle-ci va soit capturer des cartes du plateau, soit rejoindre les autres sur le plateau lorsque ce n'est pas possible.
+	Au début de chaque manche, on met 4 cartes sur le [b]plateau[/b], et on distribue 3 cartes à chaque joueur. A son tour, un joueur va sélectionner une carte de sa main en cliquant dessus puis en cliquant sur le bouton 'Jouer'. Celle-ci va soit capturer des cartes du plateau, soit rejoindre les autres sur le plateau lorsque ce n'est pas possible.
 
 	On peut capturer une ou deux cartes du plateau si la [b]somme de leurs valeurs[/b] [b]est égale à la valeur [/b]de la carte jouée. La carte jouée et sa ou ses captures sont alors retirées du jeu pour rejoindre la pile de [b]plis [/b]du joueur. S'il y a plusieurs options de capture, on se doit de toujours choisir celle qui capture [b]le moins de cartes[/b].
 
