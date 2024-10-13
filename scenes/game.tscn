@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ktnb1qx3lml1"]
+[gd_scene load_steps=20 format=3 uid="uid://ktnb1qx3lml1"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_6r4s3"]
 [ext_resource type="Texture2D" uid="uid://crd08r4h6qr1e" path="res://Assets/Cartes/icons/pokecog.svg" id="2_gwekk"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://balni2jh5uo8e" path="res://scenes/fake_confetti_particles.tscn" id="10_tk43u"]
 [ext_resource type="PackedScene" uid="uid://hnsv5m8qdfl1" path="res://scenes/setting_screen.tscn" id="12_5pmda"]
 [ext_resource type="PackedScene" uid="uid://ciyf0oi68dbi0" path="res://scenes/score.tscn" id="12_443po"]
+[ext_resource type="AudioStream" uid="uid://dbuiwqrxdotk" path="res://Assets/Sounds/shuffle.mp3" id="14_ybwic"]
+[ext_resource type="AudioStream" uid="uid://c3hofjmuh61f1" path="res://Assets/Sounds/mirliton.mp3" id="15_3boca"]
 
 [sub_resource type="GDScript" id="GDScript_prfto"]
 script/source = "extends HBoxContainer
@@ -23,6 +25,43 @@ func _process(_delta):
 	else:
 		$plein.visible = true
 "
+
+[sub_resource type="Animation" id="Animation_7f3to"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shuffle:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jathf"]
+resource_name = "deal"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shuffle:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_05hp7"]
+_data = {
+"RESET": SubResource("Animation_7f3to"),
+"deal": SubResource("Animation_jathf")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6r4s3")
@@ -345,13 +384,26 @@ timer_wait_time = 1.2
 [node name="Rules" parent="Board/UI" instance=ExtResource("9_ijnvs")]
 visible = false
 
+[node name="Score" parent="Board/UI" instance=ExtResource("12_443po")]
+unique_name_in_owner = true
+visible = false
+
 [node name="Settings" parent="Board/UI" instance=ExtResource("12_5pmda")]
 unique_name_in_owner = true
 visible = false
 
-[node name="Score" parent="Board/UI" instance=ExtResource("12_443po")]
-unique_name_in_owner = true
-visible = false
+[node name="Shuffle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_ybwic")
+bus = &"Shuffle"
+
+[node name="Mirliton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_3boca")
+bus = &"Mirliton"
+
+[node name="AnimShuffle" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_05hp7")
+}
 
 [connection signal="game_finished" from="." to="." method="_on_game_finished"]
 [connection signal="played" from="." to="." method="_on_played"]

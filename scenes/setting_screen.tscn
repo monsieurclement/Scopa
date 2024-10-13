@@ -64,7 +64,7 @@ script = SubResource("GDScript_ght6j")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+color = Color(0.20871, 0.20871, 0.20871, 1)
 
 [node name="Marges" type="MarginContainer" parent="."]
 layout_mode = 2

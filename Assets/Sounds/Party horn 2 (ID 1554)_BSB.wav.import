@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbewajhccjbpe"
+path="res://.godot/imported/Party horn 2 (ID 1554)_BSB.wav-a3177fd82b1fdbf94da52dbc32efe117.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Party horn 2 (ID 1554)_BSB.wav"
+dest_files=["res://.godot/imported/Party horn 2 (ID 1554)_BSB.wav-a3177fd82b1fdbf94da52dbc32efe117.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

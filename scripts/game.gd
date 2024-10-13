@@ -51,14 +51,15 @@ func quit():
 
 func _on_score_button_pressed() -> void:
 	$Board/UI/Score.visible = true
-
+	
 
 func _on_rules_button_pressed():
 	$Board/UI/Rules.visible = true
-
+	
 
 
 func _on_play_button_pressed(): #animation de jouer la carte et passer son tour
+	
 	if GeneralGame.idCardSelected == null or GeneralGame.idCardSelected not in GeneralGame.players_hands[0]:
 		pass #si aucune carte n'est sélectionnée on joue rien
 	elif %play_message.visible:
@@ -68,6 +69,8 @@ func _on_play_button_pressed(): #animation de jouer la carte et passer son tour
 			card.onBoardDeselect()
 	
 	$Board/UI/message_2.text = ""
+	
+	
 
 func player_random_commence():
 	#order suit le nb de joueurs
@@ -120,7 +123,10 @@ func reset_game():
 	GeneralGame.deck.shuffle() #mélange de début de game
 	
 	initiate_game() #plateau
-	deal(GeneralGame.nb_players, GeneralGame.deck) #on distribue les cartes
+	
+	#$AnimShuffle.play("deal")
+	#await get_tree().create_timer(timer*6)
+	await deal(GeneralGame.nb_players, GeneralGame.deck) #on distribue les cartes
 	
 	turn_manager()
 	#print("deck : ",GeneralGame.deck)
@@ -130,12 +136,16 @@ func reset_game():
 
 func deal(nb_players, deck):
 	var z
+	$AnimShuffle.play("deal")
+	await get_tree().create_timer(timer*2).timeout
+	
 	for i in range(0,nb_players): #distribution initiale
 		for j in range (0,3):
 			z = deck.pop_back()
 			GeneralGame.players_hands[i].append(z)
 		#if i in [1,2,3]:
 			#$Board/UI/Players.get_node("joueur"+str(i+1)).main(GeneralGame.players_hands[i].size())	
+	#await get_tree().create_timer(timer*3).timeout
 	initiate_player_hand()
 
 func initiate_player_hand(): #a est le tableau de la main du joueur
@@ -148,6 +158,7 @@ func initiate_player_hand(): #a est le tableau de la main du joueur
 
 	
 func initiate_game(): 
+	AudioServer.set_bus_mute(2,not AudioServer.is_bus_mute(2))
 	##pioche des 4 cartes initiales
 	var kings = [9,19,29,39] #ids des rois
 	var nb_kings = 0 #nb de rois dans la donne initiale
@@ -168,8 +179,9 @@ func initiate_game():
 					GeneralGame.deck.append(id)
 					GeneralGame.deck.shuffle()
 					id = id_suivant
-				
+		
 		add_to_board(id)
+	AudioServer.set_bus_mute(2,not AudioServer.is_bus_mute(2))
 		
 	##initialisation des objets des mains adverses
 	for j in range(2,GeneralGame.nb_players+1):
@@ -198,9 +210,10 @@ func turn_manager():
 	if GeneralGame.deck.size() == 0:
 		round_finished.emit()
 	else:
-		await get_tree().create_timer(timer*3).timeout
-		deal(GeneralGame.nb_players,GeneralGame.deck)
-		await get_tree().create_timer(timer).timeout
+		#$AnimShuffle.play("deal")
+		#await get_tree().create_timer(timer*2).timeout
+		await deal(GeneralGame.nb_players,GeneralGame.deck)
+		#await get_tree().create_timer(timer).timeout
 		turn_manager()
 	
 func play():
@@ -473,7 +486,7 @@ func turnover(): #tour de la boucle des joueurs
 
 func _on_played():
 	%play_message.visible = false
-
+	
 	
 	#await get_tree().create_timer(timer).timeout 
 	#for i in range(1,4):
@@ -510,7 +523,7 @@ func decompte_points(plis):
 	if score.count(score.max()) == 1:
 		GeneralGame.points[score.find(score.max())] += 1
 		GeneralGame.score_to_actualize[1][score.find(score.max())] += 1
-		%Score.end_of_game = true
+		
 		#print("plus gd nb de carte : Joueur ",score.find(score.max())+1)
 	#else:
 		#print("plus gd nb de carte : aucun joueur")
@@ -605,14 +618,14 @@ func decompte_points(plis):
 			#print("Joueur "+str(i+1)+" a gagné !!")
 			GeneralGame.winner = i+1
 			game_finished.emit()
-	
+			
 	
 func _on_scopa():
 	scopas.append(GeneralGame.order[0])
 	%ScopaConf1.emitting = true
 	%ScopaConf2.emitting = true	
 	$Board/UI/message_2.text = "Bravo ! Scopa ! Joueur " + str(GeneralGame.order[0]+1) +" marque 1 point !"
-	
+	$Mirliton.playing = true
 	
 
 func _on_player_played():
@@ -620,6 +633,8 @@ func _on_player_played():
 
 
 func _on_game_finished() -> void:
+	$Mirliton.playing = true
+	%Score.end_of_game = true
 	%Score.visible = true
 	%EndConfetti.emitting = true
 	%Score/Marges/Lignes/EndingLabel.text = "JOUEUR " + str(GeneralGame.winner) + " A GAGNE !!"

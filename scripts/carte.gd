@@ -46,7 +46,7 @@ func _on_mouse_exited(): #anim de parcourir les cartes en main
 			pass
 		else:
 			#await $Anim.animation_finished
-			$Anim.play_backwards("Select") #descendre la carte
+			$Anim.play_backwards("Select_2") #descendre la carte
 		cardHighlighted = false
 
 func _on_gui_input(event): #au clic sur une carte
