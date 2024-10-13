@@ -398,6 +398,7 @@ bus = &"Shuffle"
 
 [node name="Mirliton" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_3boca")
+volume_db = 24.0
 bus = &"Mirliton"
 
 [node name="AnimShuffle" type="AnimationPlayer" parent="."]

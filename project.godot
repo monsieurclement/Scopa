@@ -15,7 +15,7 @@ run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.851769, 0.851769, 0.851769, 1)
 boot_splash/image="res://Assets/Splash Screen.png"
-config/icon="res://icon.svg"
+config/icon="res://Assets/icone.png"
 
 [autoload]
 
